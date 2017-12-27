@@ -1,0 +1,135 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0-Web", "0-Web", "{3F37DD89-4DEB-4D3C-B316-09C7E6C2611B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1-Api", "1-Api", "{FAA76E4B-6484-417A-A5F0-E92B92CD0C15}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2-ApplicationService", "2-ApplicationService", "{3D482E12-8116-4B09-8F7E-053C6915329B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3-Domain", "3-Domain", "{AE5309BE-F792-4756-90F5-434510AF463F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4-Infrastructure", "4-Infrastructure", "{58DCBEE1-FDDD-4824-902B-EB4CB7DE5719}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5-TDD", "5-TDD", "{FC7FDFC0-4AD5-4648-9658-4206A86F535D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccessCorp.GestaoCategoria.Web", "AccessCorp.GestaoCategoria.Web\AccessCorp.GestaoCategoria.Web.csproj", "{6D7CFFD0-9B81-4747-AE8D-57D9E9A9C46B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccessCorp.GestaoCategoria.Api", "AccessCorp.GestaoCategoria.Api\AccessCorp.GestaoCategoria.Api.csproj", "{DAC8EF7C-ACAE-4799-B4CE-91CEBFA88116}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccessCorp.GestaoCategoria.Service", "AccessCorp.GestaoCategoria.Service\AccessCorp.GestaoCategoria.Service.csproj", "{0E40639C-D3CE-4A8C-A096-991835DBAA5C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccessCorp.GestaoCategoria.Domain", "AccessCorp.GestaoCategoria.Domain\AccessCorp.GestaoCategoria.Domain.csproj", "{88C2B83A-DA35-4226-8607-49CC9CA40FAB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccessCorp.GestaoCategoria.IoC", "AccessCorp.GestaoCategoria.IoC\AccessCorp.GestaoCategoria.IoC.csproj", "{44F7A86C-D27D-48D8-8D1D-B29AA43051EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccessCorp.GestaoCategoria.EntityFramework", "AccessCorp.GestaoCategoria.EntityFramework\AccessCorp.GestaoCategoria.EntityFramework.csproj", "{BC84E381-ABAF-4DD5-946D-B057F16F55AC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccessCorp.GestaoCategoria.TDD", "AccessCorp.GestaoCategoria.TDD\AccessCorp.GestaoCategoria.TDD.csproj", "{381CF818-FA0A-42F2-A905-E803A7570984}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccessCorp.GestaoCategoria.Repository", "AccessCorp.GestaoCategoria.Repository\AccessCorp.GestaoCategoria.Repository.csproj", "{9F4C7C33-FF5A-4586-B15A-76DED01C07D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccessCorp.GestaoCategoria.CrossCutting", "AccessCorp.GestaoCategoria.CrossCutting\AccessCorp.GestaoCategoria.CrossCutting.csproj", "{7287D945-9829-4DE6-AAC3-37DB747B5394}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6D7CFFD0-9B81-4747-AE8D-57D9E9A9C46B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D7CFFD0-9B81-4747-AE8D-57D9E9A9C46B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D7CFFD0-9B81-4747-AE8D-57D9E9A9C46B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D7CFFD0-9B81-4747-AE8D-57D9E9A9C46B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAC8EF7C-ACAE-4799-B4CE-91CEBFA88116}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAC8EF7C-ACAE-4799-B4CE-91CEBFA88116}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAC8EF7C-ACAE-4799-B4CE-91CEBFA88116}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAC8EF7C-ACAE-4799-B4CE-91CEBFA88116}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E40639C-D3CE-4A8C-A096-991835DBAA5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E40639C-D3CE-4A8C-A096-991835DBAA5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E40639C-D3CE-4A8C-A096-991835DBAA5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E40639C-D3CE-4A8C-A096-991835DBAA5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88C2B83A-DA35-4226-8607-49CC9CA40FAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88C2B83A-DA35-4226-8607-49CC9CA40FAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88C2B83A-DA35-4226-8607-49CC9CA40FAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88C2B83A-DA35-4226-8607-49CC9CA40FAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44F7A86C-D27D-48D8-8D1D-B29AA43051EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44F7A86C-D27D-48D8-8D1D-B29AA43051EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44F7A86C-D27D-48D8-8D1D-B29AA43051EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44F7A86C-D27D-48D8-8D1D-B29AA43051EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC84E381-ABAF-4DD5-946D-B057F16F55AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC84E381-ABAF-4DD5-946D-B057F16F55AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC84E381-ABAF-4DD5-946D-B057F16F55AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC84E381-ABAF-4DD5-946D-B057F16F55AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{381CF818-FA0A-42F2-A905-E803A7570984}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{381CF818-FA0A-42F2-A905-E803A7570984}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{381CF818-FA0A-42F2-A905-E803A7570984}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{381CF818-FA0A-42F2-A905-E803A7570984}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F4C7C33-FF5A-4586-B15A-76DED01C07D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F4C7C33-FF5A-4586-B15A-76DED01C07D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F4C7C33-FF5A-4586-B15A-76DED01C07D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F4C7C33-FF5A-4586-B15A-76DED01C07D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7287D945-9829-4DE6-AAC3-37DB747B5394}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7287D945-9829-4DE6-AAC3-37DB747B5394}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7287D945-9829-4DE6-AAC3-37DB747B5394}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7287D945-9829-4DE6-AAC3-37DB747B5394}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6D7CFFD0-9B81-4747-AE8D-57D9E9A9C46B} = {3F37DD89-4DEB-4D3C-B316-09C7E6C2611B}
+		{DAC8EF7C-ACAE-4799-B4CE-91CEBFA88116} = {FAA76E4B-6484-417A-A5F0-E92B92CD0C15}
+		{0E40639C-D3CE-4A8C-A096-991835DBAA5C} = {3D482E12-8116-4B09-8F7E-053C6915329B}
+		{88C2B83A-DA35-4226-8607-49CC9CA40FAB} = {AE5309BE-F792-4756-90F5-434510AF463F}
+		{44F7A86C-D27D-48D8-8D1D-B29AA43051EF} = {58DCBEE1-FDDD-4824-902B-EB4CB7DE5719}
+		{BC84E381-ABAF-4DD5-946D-B057F16F55AC} = {58DCBEE1-FDDD-4824-902B-EB4CB7DE5719}
+		{381CF818-FA0A-42F2-A905-E803A7570984} = {FC7FDFC0-4AD5-4648-9658-4206A86F535D}
+		{9F4C7C33-FF5A-4586-B15A-76DED01C07D8} = {58DCBEE1-FDDD-4824-902B-EB4CB7DE5719}
+		{7287D945-9829-4DE6-AAC3-37DB747B5394} = {58DCBEE1-FDDD-4824-902B-EB4CB7DE5719}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 10
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://ljcamposjr.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = AccessCorp.GestaoCategoria.Api\\AccessCorp.GestaoCategoria.Api.csproj
+		SccProjectTopLevelParentUniqueName1 = AccessCorp.GestaoCategoria.sln
+		SccProjectName1 = AccessCorp.GestaoCategoria.Api
+		SccLocalPath1 = AccessCorp.GestaoCategoria.Api
+		SccProjectUniqueName2 = AccessCorp.GestaoCategoria.Domain\\AccessCorp.GestaoCategoria.Domain.csproj
+		SccProjectTopLevelParentUniqueName2 = AccessCorp.GestaoCategoria.sln
+		SccProjectName2 = AccessCorp.GestaoCategoria.Domain
+		SccLocalPath2 = AccessCorp.GestaoCategoria.Domain
+		SccProjectUniqueName3 = AccessCorp.GestaoCategoria.EntityFramework\\AccessCorp.GestaoCategoria.EntityFramework.csproj
+		SccProjectTopLevelParentUniqueName3 = AccessCorp.GestaoCategoria.sln
+		SccProjectName3 = AccessCorp.GestaoCategoria.EntityFramework
+		SccLocalPath3 = AccessCorp.GestaoCategoria.EntityFramework
+		SccProjectUniqueName4 = AccessCorp.GestaoCategoria.IoC\\AccessCorp.GestaoCategoria.IoC.csproj
+		SccProjectTopLevelParentUniqueName4 = AccessCorp.GestaoCategoria.sln
+		SccProjectName4 = AccessCorp.GestaoCategoria.IoC
+		SccLocalPath4 = AccessCorp.GestaoCategoria.IoC
+		SccProjectUniqueName5 = AccessCorp.GestaoCategoria.Service\\AccessCorp.GestaoCategoria.Service.csproj
+		SccProjectTopLevelParentUniqueName5 = AccessCorp.GestaoCategoria.sln
+		SccProjectName5 = AccessCorp.GestaoCategoria.Service
+		SccLocalPath5 = AccessCorp.GestaoCategoria.Service
+		SccProjectUniqueName6 = AccessCorp.GestaoCategoria.TDD\\AccessCorp.GestaoCategoria.TDD.csproj
+		SccProjectTopLevelParentUniqueName6 = AccessCorp.GestaoCategoria.sln
+		SccProjectName6 = AccessCorp.GestaoCategoria.TDD
+		SccLocalPath6 = AccessCorp.GestaoCategoria.TDD
+		SccProjectUniqueName7 = AccessCorp.GestaoCategoria.Web\\AccessCorp.GestaoCategoria.Web.csproj
+		SccProjectTopLevelParentUniqueName7 = AccessCorp.GestaoCategoria.sln
+		SccProjectName7 = AccessCorp.GestaoCategoria.Web
+		SccLocalPath7 = AccessCorp.GestaoCategoria.Web
+		SccProjectUniqueName8 = AccessCorp.GestaoCategoria.Repository\\AccessCorp.GestaoCategoria.Repository.csproj
+		SccProjectTopLevelParentUniqueName8 = AccessCorp.GestaoCategoria.sln
+		SccProjectName8 = AccessCorp.GestaoCategoria.Repository
+		SccLocalPath8 = AccessCorp.GestaoCategoria.Repository
+		SccProjectUniqueName9 = AccessCorp.GestaoCategoria.CrossCutting\\AccessCorp.GestaoCategoria.CrossCutting.csproj
+		SccProjectTopLevelParentUniqueName9 = AccessCorp.GestaoCategoria.sln
+		SccProjectName9 = AccessCorp.GestaoCategoria.CrossCutting
+		SccLocalPath9 = AccessCorp.GestaoCategoria.CrossCutting
+	EndGlobalSection
+EndGlobal
