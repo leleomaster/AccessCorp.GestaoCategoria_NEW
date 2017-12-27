@@ -21,6 +21,7 @@ namespace AccessCorp.GestaoCategoria.Web.Comunicacao
             Url = ConfigurationManager.AppSettings["urlSite"].ToString();
         }
 
+
         private T Deserialize(string dataJson)
         {
             JavaScriptSerializer jss = new JavaScriptSerializer();
@@ -28,6 +29,7 @@ namespace AccessCorp.GestaoCategoria.Web.Comunicacao
 
             return obj;
         }
+
 
         public async Task<T> Post(string dataJson, string endPoint) 
         {
