@@ -29,7 +29,7 @@ namespace AccessCorp.GestaoCategoria.Domain.Business
 
         private void IsNullOrEmptyOrWhiteSpace(string campo)
         {
-            EhValido = string.IsNullOrEmpty(campo) && string.IsNullOrWhiteSpace(campo);
+            EhValido = !string.IsNullOrEmpty(campo) || !string.IsNullOrWhiteSpace(campo);
         }
 
         private void TamanhoMaiorDois(string campo)

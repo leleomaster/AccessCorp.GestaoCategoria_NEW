@@ -3,8 +3,10 @@ using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 using Ninject;
 using Ninject.Web.Common;
 using Ninject.Web.Common.WebHost;
+using Ninject.Web.WebApi;
 using System;
 using System.Web;
+using System.Web.Http;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(AccessCorp.GestaoCategoria.Api.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(AccessCorp.GestaoCategoria.Api.App_Start.NinjectWebCommon), "Stop")]
@@ -46,6 +48,9 @@ namespace AccessCorp.GestaoCategoria.Api.App_Start
                 kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
 
                 RegisterServices(kernel);
+
+                GlobalConfiguration.Configuration.DependencyResolver = new NinjectDependencyResolver(kernel);
+
                 return kernel;
             }
             catch

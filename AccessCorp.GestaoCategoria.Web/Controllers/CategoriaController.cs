@@ -1,5 +1,5 @@
-﻿using AccessCorp.GestaoCategoria.CrossCutting.Helps;
-using AccessCorp.GestaoCategoria.Web.Comunicacao;
+﻿using AccessCorp.GestaoCategoria.CrossCutting.ComunicacaoApi;
+using AccessCorp.GestaoCategoria.CrossCutting.Helps;
 using AccessCorp.GestaoCategoria.Web.Models;
 using System;
 using System.Collections.Generic;
@@ -12,12 +12,12 @@ namespace AccessCorp.GestaoCategoria.Web.Controllers
 {
     public class CategoriaController : Controller
     {
-        private readonly CallApi<CategoriaViewModel> callApiCategoria;
+        private readonly ChamadaApi<CategoriaViewModel> callApiCategoria;
         private readonly string endPoint;
 
         public CategoriaController()
         {
-            callApiCategoria = new CallApi<CategoriaViewModel>();
+            callApiCategoria = new ChamadaApi<CategoriaViewModel>();
             endPoint = "api/v1/categoria/cadastrar";
         }
 
