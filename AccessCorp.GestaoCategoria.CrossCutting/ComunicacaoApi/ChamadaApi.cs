@@ -1,21 +1,22 @@
-﻿using AccessCorp.GestaoCategoria.Web.Comunicacao.Singleton;
+﻿using AccessCorp.GestaoCategoria.CrossCutting.DesignPatterns.Singletons;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Text;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Script.Serialization;
 
-namespace AccessCorp.GestaoCategoria.Web.Comunicacao
+namespace AccessCorp.GestaoCategoria.CrossCutting.ComunicacaoApi
 {
-    public class CallApi<T> where T : class
+    public class ChamadaApi<T> where T : class
     {
         private readonly HttpClient httpClient = null;
         private readonly string Url = null;
-        public CallApi()
+
+        public ChamadaApi()
         {
             httpClient = SigletionGeneric<HttpClient>.Instance();
             Url = ConfigurationManager.AppSettings["urlSite"].ToString();
@@ -31,7 +32,7 @@ namespace AccessCorp.GestaoCategoria.Web.Comunicacao
         }
 
 
-        public async Task<T> Post(string dataJson, string endPoint) 
+        public async Task<T> Post(string dataJson, string endPoint)
         {
             ConfigurationHttpClient();
             try
@@ -96,7 +97,7 @@ namespace AccessCorp.GestaoCategoria.Web.Comunicacao
             httpClient.BaseAddress = new Uri(Url);
 
             httpClient.DefaultRequestHeaders.Accept.Clear();
-            
+
             // adicionando um Accept header para o formato JSON.
             httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }

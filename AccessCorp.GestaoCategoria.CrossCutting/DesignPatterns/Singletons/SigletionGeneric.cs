@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace AccessCorp.GestaoCategoria.Web.Comunicacao.Singleton
+﻿namespace AccessCorp.GestaoCategoria.CrossCutting.DesignPatterns.Singletons
 {
     public sealed class SigletionGeneric<T> where T : class, new()
     {
