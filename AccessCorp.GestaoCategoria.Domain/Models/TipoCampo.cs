@@ -8,7 +8,7 @@ namespace AccessCorp.GestaoCategoria.Domain.Models
 {
     public class TipoCampo
     {
-        public int Id { get; set; }
+        public int TipoCampoId { get; set; }
         public string Nome { get; set; }
     }
 }

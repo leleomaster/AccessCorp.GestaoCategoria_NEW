@@ -12,17 +12,17 @@ namespace AccessCorp.GestaoCategoria.EntityFramework.Mappings
     {
         public TextoCampoMapping()
         {
-            ToTable("TEXTOCAMPO");
+            ToTable("TEXTOCAMPO", "FORMULARIO");
 
-            HasKey(s => s.Id);
+            HasKey(s => s.TextoCampoId);
 
-            Property(s => s.Id).HasColumnName("ID");
+            Property(s => s.TextoCampoId).HasColumnName("TEXTO_CAMPO_ID");
             Property(s => s.Texto).HasColumnName("TEXTO");
-
-            //Mapeando o relacionamento
-            HasRequired(s => s.Campo)
-            .WithMany(s => s.TextoCampos)
-            .HasForeignKey(s => s.Id);
+            
+            HasRequired(c => c.Campo)
+               .WithMany(c => c.TextoCampos)
+                .Map(m => m.MapKey("CAMPO_ID"));
         }
     }
 }
+

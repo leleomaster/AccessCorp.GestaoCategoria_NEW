@@ -12,19 +12,18 @@ namespace AccessCorp.GestaoCategoria.EntityFramework.Mappings
     {
         public SubCategoriaMapping()
         {
-            ToTable("SUBCATEGORIA");
+            ToTable("SUBCATEGORIA","FORMULARIO");
+            
+            HasKey(s => s.SubCategoriaId);
 
-            HasKey(s => s.Id);
+            Property(s => s.SubCategoriaId).HasColumnName("SUB_CATEGORIA_ID");
+            Property(c => c.Nome).HasColumnName("NOME").HasMaxLength(40).IsRequired();
+            Property(c => c.Slug).HasColumnName("SLUG").HasMaxLength(650).IsRequired();
+            Property(c => c.Descricao).HasColumnName("DESCRICAO").HasMaxLength(300);
 
-            Property(s => s.Id).HasColumnName("ID");
-            Property(s => s.Nome).HasColumnName("NOME");
-            Property(s => s.Slug).HasColumnName("SLUG");
-            Property(s => s.Descricao).HasColumnName("DESCRICAO");
-
-            //Mapeando o relacionamento
-            HasRequired(s => s.Categoria)
-            .WithMany(s => s.SubCategorias)
-            .HasForeignKey(s => s.Id);         
+            HasRequired(c => c.Categoria)
+                 .WithMany(c => c.SubCategorias)
+                  .Map(m => m.MapKey("CATEGORIA_ID"));            
         }
     }
 }

@@ -8,7 +8,7 @@ namespace AccessCorp.GestaoCategoria.Domain.Models
 {
     public class Campo
     {
-        public int Id { get; set; }
+        public int CampoId { get; set; }
         public short Ordem { get; set; }
         public bool Obrigatorio { get; set; }
         public virtual SubCategoria SubCategoria { get; set; }
