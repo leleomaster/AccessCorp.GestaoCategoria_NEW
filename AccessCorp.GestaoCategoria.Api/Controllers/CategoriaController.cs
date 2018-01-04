@@ -27,21 +27,6 @@ namespace AccessCorp.GestaoCategoria.Api.Controllers
             ehCadastrado = _categoriaService.Cadastrar(categoria);
 
             return await Task.Run(() => ehCadastrado);
-        }
-
-
-        //[Route("api/v1/categoria/cadastrar/")]
-        //[HttpPost]
-        //public IHttpActionResult Cadastrar(Categoria categoria)
-        //{
-        //    return Ok("Cadastro realizado com sucesso");
-        //}
-
-        //[Route("api/v1/categoria/obter/{id:int}")]
-        //[HttpGet]
-        //public IHttpActionResult Categoria(int id)
-        //{
-        //    return Ok("Uma lista de categorias");
-        //}
+        }        
     }
 }
