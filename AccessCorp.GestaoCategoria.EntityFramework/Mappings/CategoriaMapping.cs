@@ -12,14 +12,14 @@ namespace AccessCorp.GestaoCategoria.EntityFramework.Mappings
     {
         public CategoriaMapping()
         {
-            ToTable("CATEGORIA");
+            ToTable("CATEGORIA", "FORMULARIO");
 
-            HasKey(c => c.Id);
+            HasKey(c => c.CategoriaId);
 
-            Property(c => c.Id).HasColumnName("ID");
-            Property(c => c.Nome).HasColumnName("NOME");
-            Property(c => c.Slug).HasColumnName("SLUG");
-            Property(c => c.Descricao).HasColumnName("DESCRICAO");
+            Property(c => c.CategoriaId).HasColumnName("CATEGORIA_ID");
+            Property(c => c.Nome).HasColumnName("NOME").HasMaxLength(40).IsRequired();
+            Property(c => c.Slug).HasColumnName("SLUG").HasMaxLength(650).IsRequired();
+            Property(c => c.Descricao).HasColumnName("DESCRICAO").HasMaxLength(300);            
         }
     }
 }

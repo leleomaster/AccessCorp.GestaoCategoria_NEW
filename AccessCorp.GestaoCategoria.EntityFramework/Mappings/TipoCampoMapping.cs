@@ -12,12 +12,12 @@ namespace AccessCorp.GestaoCategoria.EntityFramework.Mappings
     {
         public TipoCampoMapping()
         {
-            ToTable("TIPOCAMPO");
+            ToTable("TIPOCAMPO", "FORMULARIO");
 
-            HasKey(c => c.Id);
+            HasKey(c => c.TipoCampoId);
 
-            Property(c => c.Id).HasColumnName("ID");
-            Property(c => c.Nome).HasColumnName("NOME");
+            Property(c => c.TipoCampoId).HasColumnName("TIPO_CAMPO_ID");
+            Property(c => c.Nome).HasColumnName("NOME").HasMaxLength(40).IsRequired(); 
         }
     }
 }

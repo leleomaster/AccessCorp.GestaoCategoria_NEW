@@ -12,13 +12,21 @@ namespace AccessCorp.GestaoCategoria.EntityFramework.Mappings
     {
         public CampoMapping()
         {
-            ToTable("CAMPO");
+            ToTable("CAMPO", "FORMULARIO");
 
-            HasKey(c => c.Id);
+            HasKey(c => c.CampoId);
 
-            Property(c => c.Id);
-            Property(c => c.Obrigatorio);
-            Property(c => c.Ordem);
+            Property(c => c.CampoId).HasColumnName("CAMPO_ID"); ;
+            Property(c => c.Obrigatorio).IsRequired();
+            Property(c => c.Ordem).IsRequired();
+
+            HasRequired(c => c.SubCategoria)
+                .WithMany(c => c.Campos)
+                .Map(c => c.MapKey("SUB_CATEGORIA_ID"));
+
+            HasRequired(c => c.TipoCampo)
+                 .WithMany()
+                 .Map(m => m.MapKey("TIPO_CAMPO_ID"));
         }
     }
 }
