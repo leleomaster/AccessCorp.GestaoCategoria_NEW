@@ -126,6 +126,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Admin\Scripts\Categoria\AppCategoria.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
@@ -139,6 +140,12 @@
     <Content Include="scripts\bootstrap.js" />
     <Content Include="scripts\bootstrap.min.js" />
     <Content Include="scripts\angular.min.js.map" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ContaUsuario\Login.cshtml" />
+    <Content Include="Areas\Admin\Views\Categoria\Cadastrar.cshtml" />
     <None Include="scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="scripts\Categoria\AppCategoria.js" />
     <Content Include="scripts\jquery-1.10.2.js" />
@@ -148,7 +155,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\Base\BaseController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CategoriaController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ContaController.cs" />
+    <Compile Include="Areas\Admin\Controllers\FormularioController.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SubCategoriaController.cs" />
+    <Compile Include="Areas\Admin\Models\CategoriaViewModel.cs" />
     <Compile Include="Controllers\CategoriaController.cs" />
+    <Compile Include="Controllers\ContaUsuarioController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -170,6 +186,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Categoria\Cadastrar.cshtml" />
+    <Content Include="Views\ContaUsuario\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -179,6 +196,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Content\" />
+    <Folder Include="Areas\Admin\Views\Base\" />
+    <Folder Include="Areas\Admin\Views\Formulario\" />
+    <Folder Include="Areas\Admin\Views\SubCategoria\" />
     <Folder Include="scripts\SubCategoria\" />
   </ItemGroup>
   <ItemGroup>

@@ -16,3 +16,16 @@ textarea {
     max-width: 280px;
 }
 
+.tamanho-menu{
+    width:100%;
+}
+
+ul.dropdown-menu{
+    background-color:silver;
+    color: black;
+    font-weight:bold;
+}
+
+.topo-categoria{
+    margin-top: 50px;
+}
