@@ -127,6 +127,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admin\Scripts\Categoria\AppCategoria.js" />
+    <Content Include="Areas\Admin\Scripts\SubCategoria\AppSubCategoria.js" />
+    <Content Include="Areas\Admin\Scripts\TipoCampo\AppTipoCampo.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
@@ -146,8 +148,9 @@
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <Content Include="Areas\Admin\Views\ContaUsuario\Login.cshtml" />
     <Content Include="Areas\Admin\Views\Categoria\Cadastrar.cshtml" />
+    <Content Include="Areas\Admin\Views\TipoCampo\Cadastrar.cshtml" />
+    <Content Include="Areas\Admin\Views\SubCategoria\Cadastrar.cshtml" />
     <None Include="scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="scripts\Categoria\AppCategoria.js" />
     <Content Include="scripts\jquery-1.10.2.js" />
     <Content Include="scripts\jquery-1.10.2.min.js" />
     <Content Include="scripts\modernizr-2.6.2.js" />
@@ -159,17 +162,14 @@
     <Compile Include="Areas\Admin\Controllers\Base\BaseController.cs" />
     <Compile Include="Areas\Admin\Controllers\CategoriaController.cs" />
     <Compile Include="Areas\Admin\Controllers\ContaController.cs" />
-    <Compile Include="Areas\Admin\Controllers\FormularioController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\SubCategoriaController.cs" />
-    <Compile Include="Areas\Admin\Models\CategoriaViewModel.cs" />
-    <Compile Include="Controllers\CategoriaController.cs" />
+    <Compile Include="Areas\Admin\Controllers\TipoCampoController.cs" />
     <Compile Include="Controllers\ContaUsuarioController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\CategoriaViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -185,7 +185,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\Categoria\Cadastrar.cshtml" />
     <Content Include="Views\ContaUsuario\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -197,15 +196,19 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Content\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\Scripts\Conta\" />
     <Folder Include="Areas\Admin\Views\Base\" />
-    <Folder Include="Areas\Admin\Views\Formulario\" />
-    <Folder Include="Areas\Admin\Views\SubCategoria\" />
-    <Folder Include="scripts\SubCategoria\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AccessCorp.GestaoCategoria.CrossCutting\AccessCorp.GestaoCategoria.CrossCutting.csproj">
       <Project>{7287D945-9829-4DE6-AAC3-37DB747B5394}</Project>
       <Name>AccessCorp.GestaoCategoria.CrossCutting</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AccessCorp.GestaoCategoria.Model\AccessCorp.GestaoCategoria.Model.csproj">
+      <Project>{195ceb9b-7999-4f53-9e9e-8ac79c91d4b0}</Project>
+      <Name>AccessCorp.GestaoCategoria.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

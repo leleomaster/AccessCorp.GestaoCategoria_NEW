@@ -206,6 +206,10 @@
       <Project>{44F7A86C-D27D-48D8-8D1D-B29AA43051EF}</Project>
       <Name>AccessCorp.GestaoCategoria.IoC</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AccessCorp.GestaoCategoria.Model\AccessCorp.GestaoCategoria.Model.csproj">
+      <Project>{195ceb9b-7999-4f53-9e9e-8ac79c91d4b0}</Project>
+      <Name>AccessCorp.GestaoCategoria.Model</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AccessCorp.GestaoCategoria.Service\AccessCorp.GestaoCategoria.Service.csproj">
       <Project>{0E40639C-D3CE-4A8C-A096-991835DBAA5C}</Project>
       <Name>AccessCorp.GestaoCategoria.Service</Name>

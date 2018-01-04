@@ -1,12 +1,12 @@
 ﻿//define aplicação angular e o controller
-var app = angular.module("categoriaApp", []);
+var app = angular.module("subCategoriaApp", []);
 
 //registra o controller e cria a função para obter os dados do Controlador MVC
-app.controller("Categoria", function ($scope, $http) {
+app.controller("SubCategoria", function ($scope, $http) {
 
     //chama o  método IncluirProduto do controlador
-    $scope.AddCategoria = function (categoria) {
-        $http.post('/categoria/cadastrar/', { categoria: categoria })
+    $scope.AddCategoria = function (subCategoria) {
+        $http.post('cadastrar/', { subCategoria: subCategoria })
         .success(function (result) {
             $scope.produtos = result;
             delete $scope.produto;
@@ -17,8 +17,8 @@ app.controller("Categoria", function ($scope, $http) {
     }
 
     //chama o método AtualizarCategoria do controlador
-    $scope.AtualizarCategoria = function (categoria) {
-        $http.post('/categoria/atualizar/', { categoria: categoria })
+    $scope.AtualizarCategoria = function (subCategoria) {
+        $http.post('atualizar/', { subCategoria: subCategoria })
         .success(function (result) {
             $scope.produtos = result;
         })
@@ -26,4 +26,12 @@ app.controller("Categoria", function ($scope, $http) {
             console.log(data);
         });
     }
+
+
+    $http.get("listar").success(function (response) {
+        $scope.ListaCategoria = response.data;
+    })
+   .error(function () {
+       alert("Error")
+   });
 });

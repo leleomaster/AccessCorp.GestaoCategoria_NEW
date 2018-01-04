@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewBag.Title = "Cadastro de SubCategorias";
+}
+
+<script src="~/Areas/Admin/Scripts/SubCategoria/AppSubCategoria.js"></script>
+
+<h2>Cadastro de SubCategorias</h2>
+
+<div ng-app="subCategoriaApp">
+    <div ng-controller="SubCategoria">
+        <div class="form-group">
+            <label for="idNome" class="col-lg-2 control-label">
+                Nome da SubCategoria
+            </label>
+            <div class="col-lg-10">
+                <input type="text" class="form-control" id="idNome" ng-model="subCategoria.Nome" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="idDescricao" class="col-lg-2 control-label">
+                Descrição da SubCategoria
+            </label>
+            <div class="col-lg-10">
+                <input type="text" class="form-control" id="idDescricao" ng-model="subCategoria.Descricao" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="idSlug" class="col-lg-2 control-label">
+                Slug da SubCategoria
+            </label>
+            <div class="col-lg-10">
+                <input type="text" class="form-control" id="idSlug" ng-model="subCategoria.Slug" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="idSlug" class="col-lg-2 control-label">
+
+            </label>
+            <div class="col-lg-10">
+
+                <select ng-model="ListaCategoria.IdCategoria" ng-required="true" id="e_sel_estado" class="cbx_all">
+                    <option value="">Selecione</option>
+                    <option ng-repeat="categoria in ListaCategoria" value="{{categoria.IdCategoria}}">{{categoria.Nome}}</option>
+                </select>
+
+            </div>
+        </div>
+        
+        <a href="#" class="btn btn-primary form-control" ng-click="AddSubCategoria(subCategoria)" ng-disabled="!subCategoria.Nome || !subCategoria.Descricao || !subCategoria.Slug"
+           data-toggle="tooltip" title="Adicionar Produto">Adicionar a SubCategoria</a>
+    </div>
+</div>

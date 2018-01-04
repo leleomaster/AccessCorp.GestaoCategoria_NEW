@@ -3,7 +3,6 @@
     ViewBag.Title = "Cadastrar";
 }
 
-
 <h2>Cadastro de Categorias</h2>
 
 <script src="~/Areas/Admin/Scripts/Categoria/AppCategoria.js"></script>
@@ -37,8 +36,9 @@
             </div>
         </div>
 
-        <a href="#" class="btn btn-primary" ng-click="AddCategoria(categoria)" ng-disabled="!categoria.Nome || !categoria.Descricao || !categoria.Slug"
+        <a href="#" class="btn btn-primary form-control" ng-click="AddCategoria(categoria)" ng-disabled="!categoria.Nome || !categoria.Descricao || !categoria.Slug"
            data-toggle="tooltip" title="Adicionar Produto">Adicionar Categoria</a>
+
     </div>
 </div>
 

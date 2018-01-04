@@ -1,5 +1,4 @@
 ﻿using AccessCorp.GestaoCategoria.Model;
-using AccessCorp.GestaoCategoria.Web.Areas.Admin.Controllers.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +7,7 @@ using System.Web.Mvc;
 
 namespace AccessCorp.GestaoCategoria.Web.Areas.Admin.Controllers
 {
-    public class CategoriaController : BaseController
+    public class TipoCampoController : Controller
     {
         [HttpGet]
         public ActionResult Cadastrar()
@@ -17,11 +16,9 @@ namespace AccessCorp.GestaoCategoria.Web.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public ActionResult Cadastrar(CategoriaViewModel categoria)
+        public ActionResult Cadastrar(TipoCampoViewModel tipoCampo)
         {
             return View();
         }
-
-        
     }
 }

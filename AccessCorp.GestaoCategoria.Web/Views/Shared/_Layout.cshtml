@@ -26,14 +26,9 @@
 
                 <ul class="nav navbar-nav">
                     @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "navbar-brand active" })
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                            Categoria
-                            <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            @Html.ActionLink("Cadastro", "Cadastrar", "Categoria", new { area = "" }, new { @class = "navbar-brand active" })
-                        </ul>
+                    <li>
+                        
+                        @Html.ActionLink("Área Administrativa", "Index", "Home", new { area = "Admin" }, new { @class = "active "  })
                     </li>
 
                 </ul>
@@ -51,7 +46,7 @@
         </div>
     </div>
 
-    <div class="container body-content">
+    <div class="container body-content topo-distancia-menu">
         @RenderBody()
         <hr />
         <footer>

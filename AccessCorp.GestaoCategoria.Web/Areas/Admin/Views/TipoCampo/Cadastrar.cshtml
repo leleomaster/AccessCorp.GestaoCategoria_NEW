@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Cadastrar de Tipo de Campos";
+}
+
+<h2>Cadastrar de Tipo de Campos</h2>
+
+<script src="~/Areas/Admin/Scripts/TipoCampo/AppTipoCampo.js"></script>
+
+<div ng-app="tipoCampoApp">
+    <div ng-controller="TipoCampo">
+        <div class="form-group">
+            <label for="idNome" class="col-lg-2 control-label">
+                Nome do Tipo de Campo
+            </label>
+            <div class="col-lg-10">
+                <input type="text" class="form-control" id="idNome" ng-model="tipoCampo.Nome" />
+            </div>
+        </div>
+        <div class="col-lg-10">
+            <a href="#" class="btn btn-primary" ng-click="AddTipoCampo(tipoCampo)" ng-disabled="!tipoCampo.Nome"
+               data-toggle="tooltip" title="Adicionar Produto">Adicionar o Tipo de Campo</a>
+        </div>
+    </div>
+</div>

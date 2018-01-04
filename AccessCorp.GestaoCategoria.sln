@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccessCorp.GestaoCategoria.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccessCorp.GestaoCategoria.CrossCutting", "AccessCorp.GestaoCategoria.CrossCutting\AccessCorp.GestaoCategoria.CrossCutting.csproj", "{7287D945-9829-4DE6-AAC3-37DB747B5394}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccessCorp.GestaoCategoria.Model", "AccessCorp.GestaoCategoria.Model\AccessCorp.GestaoCategoria.Model.csproj", "{195CEB9B-7999-4F53-9E9E-8AC79C91D4B0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{7287D945-9829-4DE6-AAC3-37DB747B5394}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7287D945-9829-4DE6-AAC3-37DB747B5394}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7287D945-9829-4DE6-AAC3-37DB747B5394}.Release|Any CPU.Build.0 = Release|Any CPU
+		{195CEB9B-7999-4F53-9E9E-8AC79C91D4B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{195CEB9B-7999-4F53-9E9E-8AC79C91D4B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{195CEB9B-7999-4F53-9E9E-8AC79C91D4B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{195CEB9B-7999-4F53-9E9E-8AC79C91D4B0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -89,47 +95,6 @@ Global
 		{381CF818-FA0A-42F2-A905-E803A7570984} = {FC7FDFC0-4AD5-4648-9658-4206A86F535D}
 		{9F4C7C33-FF5A-4586-B15A-76DED01C07D8} = {58DCBEE1-FDDD-4824-902B-EB4CB7DE5719}
 		{7287D945-9829-4DE6-AAC3-37DB747B5394} = {58DCBEE1-FDDD-4824-902B-EB4CB7DE5719}
-	EndGlobalSection
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 10
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://ljcamposjr.visualstudio.com/
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = AccessCorp.GestaoCategoria.Api\\AccessCorp.GestaoCategoria.Api.csproj
-		SccProjectTopLevelParentUniqueName1 = AccessCorp.GestaoCategoria.sln
-		SccProjectName1 = AccessCorp.GestaoCategoria.Api
-		SccLocalPath1 = AccessCorp.GestaoCategoria.Api
-		SccProjectUniqueName2 = AccessCorp.GestaoCategoria.Domain\\AccessCorp.GestaoCategoria.Domain.csproj
-		SccProjectTopLevelParentUniqueName2 = AccessCorp.GestaoCategoria.sln
-		SccProjectName2 = AccessCorp.GestaoCategoria.Domain
-		SccLocalPath2 = AccessCorp.GestaoCategoria.Domain
-		SccProjectUniqueName3 = AccessCorp.GestaoCategoria.EntityFramework\\AccessCorp.GestaoCategoria.EntityFramework.csproj
-		SccProjectTopLevelParentUniqueName3 = AccessCorp.GestaoCategoria.sln
-		SccProjectName3 = AccessCorp.GestaoCategoria.EntityFramework
-		SccLocalPath3 = AccessCorp.GestaoCategoria.EntityFramework
-		SccProjectUniqueName4 = AccessCorp.GestaoCategoria.IoC\\AccessCorp.GestaoCategoria.IoC.csproj
-		SccProjectTopLevelParentUniqueName4 = AccessCorp.GestaoCategoria.sln
-		SccProjectName4 = AccessCorp.GestaoCategoria.IoC
-		SccLocalPath4 = AccessCorp.GestaoCategoria.IoC
-		SccProjectUniqueName5 = AccessCorp.GestaoCategoria.Service\\AccessCorp.GestaoCategoria.Service.csproj
-		SccProjectTopLevelParentUniqueName5 = AccessCorp.GestaoCategoria.sln
-		SccProjectName5 = AccessCorp.GestaoCategoria.Service
-		SccLocalPath5 = AccessCorp.GestaoCategoria.Service
-		SccProjectUniqueName6 = AccessCorp.GestaoCategoria.TDD\\AccessCorp.GestaoCategoria.TDD.csproj
-		SccProjectTopLevelParentUniqueName6 = AccessCorp.GestaoCategoria.sln
-		SccProjectName6 = AccessCorp.GestaoCategoria.TDD
-		SccLocalPath6 = AccessCorp.GestaoCategoria.TDD
-		SccProjectUniqueName7 = AccessCorp.GestaoCategoria.Web\\AccessCorp.GestaoCategoria.Web.csproj
-		SccProjectTopLevelParentUniqueName7 = AccessCorp.GestaoCategoria.sln
-		SccProjectName7 = AccessCorp.GestaoCategoria.Web
-		SccLocalPath7 = AccessCorp.GestaoCategoria.Web
-		SccProjectUniqueName8 = AccessCorp.GestaoCategoria.Repository\\AccessCorp.GestaoCategoria.Repository.csproj
-		SccProjectTopLevelParentUniqueName8 = AccessCorp.GestaoCategoria.sln
-		SccProjectName8 = AccessCorp.GestaoCategoria.Repository
-		SccLocalPath8 = AccessCorp.GestaoCategoria.Repository
-		SccProjectUniqueName9 = AccessCorp.GestaoCategoria.CrossCutting\\AccessCorp.GestaoCategoria.CrossCutting.csproj
-		SccProjectTopLevelParentUniqueName9 = AccessCorp.GestaoCategoria.sln
-		SccProjectName9 = AccessCorp.GestaoCategoria.CrossCutting
-		SccLocalPath9 = AccessCorp.GestaoCategoria.CrossCutting
+		{195CEB9B-7999-4F53-9E9E-8AC79C91D4B0} = {58DCBEE1-FDDD-4824-902B-EB4CB7DE5719}
 	EndGlobalSection
 EndGlobal
