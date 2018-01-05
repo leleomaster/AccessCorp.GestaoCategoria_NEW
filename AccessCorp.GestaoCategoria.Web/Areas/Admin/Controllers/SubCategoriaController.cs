@@ -22,16 +22,70 @@ namespace AccessCorp.GestaoCategoria.Web.Areas.Admin.Controllers
         [HttpGet]
         public JsonResult ListaCategoria()
         {
-            var lista = from l in TesteLista()
-                        select new
-                        {
-                            Id = l.Id,
-                            Nome = l.Nome
-                        };
+            var lista = (from l in TesteLista()
+                         select new
+                         {
+                             Id = l.Id,
+                             Nome = l.Nome
+                         }).ToList();
 
-            return Json(lista);
+            return Json(lista, JsonRequestBehavior.AllowGet);
         }
 
+        [HttpGet]
+        public JsonResult ListaTipoCampo()
+        {
+            var lista = (from l in TesteListaTipoCampo()
+                         select new
+                         {
+                             Id = l.TipoCampoId,
+                             Nome = l.Nome
+                         }).ToList();
+
+            return Json(lista, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public PartialViewResult CamposAdicionais()
+        {
+            return PartialView("_CamposAdicionais");
+        }
+        private List<TipoCampoViewModel> TesteListaTipoCampo()
+        {
+            return new List<TipoCampoViewModel>()
+            {
+                new TipoCampoViewModel()
+                {
+                    TipoCampoId = 1,
+                    Nome = "radio"
+                },
+                new TipoCampoViewModel()
+                {
+                    TipoCampoId = 2,
+                    Nome = "check"
+                },
+                new TipoCampoViewModel()
+                {
+                    TipoCampoId = 3,
+                    Nome = "button"
+                },
+                new TipoCampoViewModel()
+                {
+                    TipoCampoId = 4,
+                    Nome = "text"
+                },
+                new TipoCampoViewModel()
+                {
+                    TipoCampoId = 5,
+                    Nome = "textarea"
+                },
+                new TipoCampoViewModel()
+                {
+                    TipoCampoId = 6,
+                    Nome = "select"
+                },
+            };
+        }
 
         private List<CategoriaViewModel> TesteLista()
         {

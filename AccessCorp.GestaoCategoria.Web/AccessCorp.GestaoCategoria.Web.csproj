@@ -141,7 +141,6 @@
     <Content Include="scripts\angular.min.js" />
     <Content Include="scripts\bootstrap.js" />
     <Content Include="scripts\bootstrap.min.js" />
-    <Content Include="scripts\angular.min.js.map" />
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
@@ -150,6 +149,8 @@
     <Content Include="Areas\Admin\Views\Categoria\Cadastrar.cshtml" />
     <Content Include="Areas\Admin\Views\TipoCampo\Cadastrar.cshtml" />
     <Content Include="Areas\Admin\Views\SubCategoria\Cadastrar.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_CamposAdicionais.cshtml" />
+    <Content Include="scripts\angular.min.js.map" />
     <None Include="scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="scripts\jquery-1.10.2.js" />
     <Content Include="scripts\jquery-1.10.2.min.js" />

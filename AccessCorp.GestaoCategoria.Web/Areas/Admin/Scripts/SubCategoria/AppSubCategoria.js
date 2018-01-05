@@ -2,10 +2,16 @@
 var app = angular.module("subCategoriaApp", []);
 
 //registra o controller e cria a função para obter os dados do Controlador MVC
-app.controller("SubCategoria", function ($scope, $http) {
+app.controller("SubCategoria", function ($scope, $http, $compile) {
+
+    $scope.ListaCategoria = [];
+    $scope.ListaTipoCampo = [];
+    $scope.camposAdicionais = "";
+    $scope.tempPage = "";
+    $scope.subCategoria = [];
 
     //chama o  método IncluirProduto do controlador
-    $scope.AddCategoria = function (subCategoria) {
+    $scope.AddSubCategoria = function (subCategoria) {
         $http.post('cadastrar/', { subCategoria: subCategoria })
         .success(function (result) {
             $scope.produtos = result;
@@ -19,19 +25,34 @@ app.controller("SubCategoria", function ($scope, $http) {
     //chama o método AtualizarCategoria do controlador
     $scope.AtualizarCategoria = function (subCategoria) {
         $http.post('atualizar/', { subCategoria: subCategoria })
-        .success(function (result) {
-            $scope.produtos = result;
-        })
-        .error(function (data) {
-            console.log(data);
+        .then(function (response) {
+            $scope.produtos = response.data;
         });
     }
 
-
-    $http.get("listar").success(function (response) {
+    $http.get("ListaCategoria").then(function (response) {
         $scope.ListaCategoria = response.data;
+    });
+
+    $http.get("ListaTipoCampo").then(function (response) {
+        $scope.ListaTipoCampo = response.data;
     })
-   .error(function () {
-       alert("Error")
-   });
+
+
+
+    $http.get('CamposAdicionais/')
+       .then(function (response) {
+           $scope.tempPage = response.data;
+       })
+
+
+    $scope.AddCamposTela = function () {
+
+        var el = $compile($scope.tempPage)($scope);
+        $('#idCamposAdicionais').append(el);
+    }
+
+    $scope.AddCampoNgModel = function (campos) {
+        $scope.subCategoria.push(campos);
+    }
 });

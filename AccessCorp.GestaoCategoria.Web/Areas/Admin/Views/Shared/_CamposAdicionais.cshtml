@@ -1,0 +1,36 @@
+﻿
+<fieldset class="fieldset">
+    <legend>Template</legend>
+    <div class="form-group">
+        <label for="idTextoObrigatorio" class="col-lg-3 control-label">
+            Obrigatório
+        </label>
+
+        <input type="checkbox" class="form-control" id="idTextoObrigatorio" ng-model="camposViewModel.Obrigatorio" />
+
+    </div>
+
+    <div class="form-group">
+        <label for="idTextoOrdem" class="col-lg-3 control-label">
+            Tipos de Campos
+        </label>
+
+        <select ng-model="camposViewModel.IdTipoCampo"
+                ng-options="tipoCampo.Id as tipoCampo.Nome for tipoCampo in ListaTipoCampo" material-select watch>
+            <option value="">Selecione</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="idTextoObrigatorio" class="col-lg-3 control-label">
+            Ordem
+        </label>
+
+        <input type="number" class="form-control" id="idTextoObrigatorio" ng-model="camposViewModel.Ordem" />
+
+    </div>
+    <div class="form-group">
+        <a href="#" class="btn btn-primary form-control" ng-click="AddCampoNgModel(camposViewModel)" 
+           data-toggle="tooltip" title="Adicionar Campos">Adicionar Campos</a>
+    </div>
+</fieldset>
