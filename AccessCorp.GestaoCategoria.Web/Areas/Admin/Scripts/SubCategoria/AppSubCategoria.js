@@ -1,5 +1,7 @@
 ﻿//define aplicação angular e o controller
 var app = angular.module("subCategoriaApp", []);
+var indexCampoAdicionais = 0;
+$(".div-texto-valor-campos").hide();
 
 //registra o controller e cria a função para obter os dados do Controlador MVC
 app.controller("SubCategoria", function ($scope, $http, $compile) {
@@ -9,6 +11,9 @@ app.controller("SubCategoria", function ($scope, $http, $compile) {
     $scope.camposAdicionais = "";
     $scope.tempPage = "";
     $scope.subCategoria = [];
+    $scope.subCategoria.camposViewModel = [];
+    $scope.subCategoria.camposViewModel.TextoCampos = [];
+    $scope.camposViewModel = [];
 
     //chama o  método IncluirProduto do controlador
     $scope.AddSubCategoria = function (subCategoria) {
@@ -38,13 +43,10 @@ app.controller("SubCategoria", function ($scope, $http, $compile) {
         $scope.ListaTipoCampo = response.data;
     })
 
-
-
     $http.get('CamposAdicionais/')
        .then(function (response) {
            $scope.tempPage = response.data;
        })
-
 
     $scope.AddCamposTela = function () {
 
@@ -52,7 +54,58 @@ app.controller("SubCategoria", function ($scope, $http, $compile) {
         $('#idCamposAdicionais').append(el);
     }
 
-    $scope.AddCampoNgModel = function (campos) {
-        $scope.subCategoria.push(campos);
+    $scope.AddCampoNgModel = function (camposViewModel) {
+
+        $scope.subCategoria.camposViewModel.push(camposViewModel);
+
+        addCamposAdicionaisNaTaebla(indexCampoAdicionais, $compile, $scope);
+
+        $scope.camposViewModel.Obrigatorio = false;
+        $scope.camposViewModel.Ordem = "";
+        $scope.camposViewModel.IdTipoCampo = 0;
+
+        indexCampoAdicionais++;
+    }
+
+    $scope.RemoveCampo = function (index) {
+        var ehParaRemover = confirm("Você tem certeza que deseja remover essas campos?");
+
+        if (ehParaRemover) {
+            $scope.subCategoria.camposViewModel.splice(index, 1);
+            removerCamposAdicionaisNaTaebla(index);
+            indexCampoAdicionais--;
+        }
+    }
+
+    $scope.esconderOuMostrarCampos = function () {
+        var idTipoCampo = $scope.camposViewModel.IdTipoCampo;
+
+        if (idTipoCampo == 6) {// select/combobox
+            $(".div-texto-valor-campos").show();
+        } else {
+            $(".div-texto-valor-campos").hide();
+        }
     }
 });
+
+function addCamposAdicionaisNaTaebla(index, $compile, $scope) {
+
+    var obrigatorio = $('input#idTextoObrigatorio').is(':checked') == true ? "Sim" : "Não";
+    var tr =
+            "<tr id=tr_" + index + ">" +
+                "<td>" + obrigatorio + "</td>" +
+                "<td>" + $("#idOrdem").val() + "</td>" +
+                "<td>" + $("#IdTipoCampo option:selected").text() + "</td>" +
+                "<td><button class='btn btn-dange' ng-click='RemoveCampo(" + index + ")'>X</button></td>" +
+    "</tr>";
+
+    var el = $compile(tr)($scope);
+
+    $("#idCamposAdicionados > table > tbody").append(el);
+
+
+}
+
+function removerCamposAdicionaisNaTaebla(index) {
+    $("#tr_" + index).remove();
+}

@@ -63,12 +63,7 @@ namespace AccessCorp.GestaoCategoria.Web.Areas.Admin.Controllers
                 {
                     TipoCampoId = 2,
                     Nome = "check"
-                },
-                new TipoCampoViewModel()
-                {
-                    TipoCampoId = 3,
-                    Nome = "button"
-                },
+                },               
                 new TipoCampoViewModel()
                 {
                     TipoCampoId = 4,

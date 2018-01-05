@@ -33,3 +33,28 @@ ul.dropdown-menu {
 .topo-distancia-menu {
     margin-top: 50px;
 }
+
+.borda-cinza {
+    margin: 20px 0;
+    padding: 20px 0;
+    border: 1px solid #ddd !important;
+}
+
+
+
+fieldset legend {
+    text-align: center;
+}
+
+.margin-left-botao-add-campo-ngmodel {
+    margin-left: 16.666666666666664%;
+}
+
+.botao-centro {
+    margin: 0 auto;
+    width: 20%;
+}
+
+.esconder-div{
+    display: none;
+}

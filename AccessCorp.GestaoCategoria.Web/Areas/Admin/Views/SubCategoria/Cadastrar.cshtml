@@ -51,12 +51,84 @@
             <a href="#" class="btn btn-primary" ng-click="AddCamposTela()" data-toggle="tooltip" title="Mais Campos">Mais Campos</a>
         </div>
 
-        <div ng-bind-html="camposAdicionais" id="idCamposAdicionais">
-
+        <div id="idCamposAdicionados" ng-show="subCategoria.camposViewModel != undefined && subCategoria.camposViewModel.length > 0">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Obrigatório</th>
+                        <th>Ordem</th>
+                        <th>Tipo de Campo</th>
+                        <th>Excluir</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
         </div>
-        
-        <div class="form-group">
-            <a href="#" class="btn btn-primary form-control" ng-click="AddSubCategoria(subCategoria)" ng-disabled="!subCategoria.Nome || !subCategoria.Descricao || !subCategoria.Slug"
+
+        <div id="idCamposAdicionais" class="borda-cinza">
+            <fieldset>
+                <legend>Campos Adicionais para o Formulário</legend>
+
+                <div class="form-group">
+                    <label for="idOrdem" class="col-lg-2 control-label">
+                        Ordem
+                    </label>
+                    <input type="number" class="" id="idOrdem" ng-model="camposViewModel.Ordem" />
+                </div>
+
+                <div class="form-group">
+                    <label for="idTextoObrigatorio" class="col-lg-2 control-label">
+                        Obrigatório
+                    </label>
+                    <input type="checkbox" id="idTextoObrigatorio" ng-model="camposViewModel.Obrigatorio" />
+                </div>
+
+                <div class="form-group">
+                    <label for="idIdTipoCampo" class="col-lg-2 control-label">
+                        Tipos de Campos
+                    </label>
+
+                    <select id="IdTipoCampo" ng-model="camposViewModel.IdTipoCampo"
+                            ng-options="tipoCampo.Id as tipoCampo.Nome for tipoCampo in ListaTipoCampo"
+                            ng-change="esconderOuMostrarCampos()"
+                            material-select watch>
+                        <option value="">Selecione</option>
+                    </select>
+                </div>
+
+                <div class="borda-cinza div-texto-valor-campos esconder-div">
+                    <fieldset>
+                        <legend>Informações para o select/combobox</legend>
+                        <div class="form-group">
+                            <label for="idTextoObrigatorio" class="col-lg-2 control-label">
+                                Texto do select
+                            </label>
+                            <input type="text" class="form-control" id="idTextoObrigatorio" ng-model="TextoCampos.Texto" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="idTextoObrigatorio" class="col-lg-2 control-label">
+                                Valor do select
+                            </label>
+                            <input type="text" class="form-control" id="idTextoObrigatorio" ng-model="TextoCampos.Valor" />
+                        </div>
+                        <div class="form-group">
+                            <a href="#" class="btn btn-primary margin-left-botao-add-campo-ngmodel" ng-click="AddTextoCampoNgModel(TextoCampos)"
+                               ng-disabled="!TextoCampos.Texto || !TextoCampos.Valor"
+                               data-toggle="tooltip" title="Adicionar Campos">Adicionar Texto Campos</a>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="form-group">
+                    <a href="#" class="btn btn-primary margin-left-botao-add-campo-ngmodel" ng-click="AddCampoNgModel(camposViewModel)"
+                       ng-disabled="!camposViewModel.Ordem || !camposViewModel.IdTipoCampo"
+                       data-toggle="tooltip" title="Adicionar Campos">Adicionar Campos</a>
+                </div>
+            </fieldset>
+        </div>
+
+        <div class="form-group botao-centro">
+            <a href="#" class="btn btn-primary" ng-click="AddSubCategoria(subCategoria)" ng-disabled="!subCategoria.Nome || !subCategoria.Descricao || !subCategoria.Slug"
                data-toggle="tooltip" title="Adicionar Produto">Adicionar a SubCategoria</a>
         </div>
     </div>
