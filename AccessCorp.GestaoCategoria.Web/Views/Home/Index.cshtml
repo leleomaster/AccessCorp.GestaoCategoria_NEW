@@ -1,7 +1,16 @@
 ﻿
+@model AccessCorp.GestaoCategoria.Model.FormularioViewModel
+
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Index - Gestão de Categoria";
 }
 
 <h2>Olá, seja bem vindo ao Gestão de Categorias</h2>
 
+@if(Model != null && Model.ListaCategoriaViewModel.Any())
+{
+    foreach (var categoria in Model.ListaCategoriaViewModel)
+    {
+
+    }
+}

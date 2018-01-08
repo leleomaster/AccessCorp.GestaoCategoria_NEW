@@ -1,0 +1,46 @@
+﻿@model AccessCorp.GestaoCategoria.Model.FormularioViewModel
+
+@{
+    ViewBag.Title = "Categoria";
+}
+
+<h2>Lista de Categoria</h2>
+
+<h4>Escolha a SubCategoria para exibir o formulário</h4>
+
+@if (Model != null && Model.ListaCategoriaViewModel.Any())
+{
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.Label("Nome da Categoria")
+            </th>
+            <th>
+                @Html.Label("Descricao da Categoria")
+            </th>
+            <th>
+                @Html.Label("Slug da Categoria")
+            </th>
+        </tr>
+
+        @foreach (var item in Model.ListaCategoriaViewModel)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descricao)
+                </td>
+                <td>
+                    @Html.ActionLink(item.Slug, "Formulario", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    </table>
+}
+else
+{
+    <p>Nenhum resultado foi encontrado</p>
+}

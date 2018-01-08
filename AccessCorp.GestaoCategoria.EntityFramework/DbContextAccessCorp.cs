@@ -15,7 +15,7 @@ namespace AccessCorp.GestaoCategoria.EntityFramework
         public DbContextAccessCorp()
             : base("EFConnectionStringAccessCorp")
         {
-
+            Database.SetInitializer(new GestaoCategoriaDBInitializer());
         }
 
         public virtual DbSet<Campo> Campos { get; set; }
@@ -44,5 +44,7 @@ namespace AccessCorp.GestaoCategoria.EntityFramework
 
             base.OnModelCreating(modelBuilder);
         }
+
+        
     }
 }

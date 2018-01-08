@@ -80,8 +80,8 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1-beta3\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Net.Http" />
@@ -147,7 +147,6 @@
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <Content Include="Areas\Admin\Views\ContaUsuario\Login.cshtml" />
     <Content Include="Areas\Admin\Views\Categoria\Cadastrar.cshtml" />
-    <Content Include="Areas\Admin\Views\TipoCampo\Cadastrar.cshtml" />
     <Content Include="Areas\Admin\Views\SubCategoria\Cadastrar.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_CamposAdicionais.cshtml" />
     <Content Include="scripts\angular.min.js.map" />
@@ -167,7 +166,9 @@
     <Compile Include="Areas\Admin\Controllers\SubCategoriaController.cs" />
     <Compile Include="Areas\Admin\Controllers\TipoCampoController.cs" />
     <Compile Include="Controllers\ContaUsuarioController.cs" />
+    <Compile Include="Controllers\FormularioController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="EndPoints\WebApiGestaoCategoria.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -181,12 +182,14 @@
     </Content>
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\ContaUsuario\Login.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Formulario\Index.cshtml" />
+    <Content Include="Views\Formulario\Categoria.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -200,6 +203,7 @@
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Scripts\Conta\" />
     <Folder Include="Areas\Admin\Views\Base\" />
+    <Folder Include="Areas\Admin\Views\TipoCampo\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

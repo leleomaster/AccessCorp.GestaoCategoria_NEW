@@ -1,4 +1,5 @@
 ﻿using AccessCorp.GestaoCategoria.Domain.Models;
+using AccessCorp.GestaoCategoria.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,7 @@ namespace AccessCorp.GestaoCategoria.Service.Interfaces
 {
     public interface ICategoriaService
     {
-        bool Cadastrar(Categoria categoria);
+        bool Cadastrar(CategoriaViewModel categoria);
+        IEnumerable<CategoriaViewModel> GetAll();
     }
 }

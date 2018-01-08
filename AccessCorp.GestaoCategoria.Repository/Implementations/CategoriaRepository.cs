@@ -27,5 +27,10 @@ namespace AccessCorp.GestaoCategoria.Repository.Implementations
 
             _dbContextAccessCorp.SaveChanges();
         }
+
+        public IEnumerable<Categoria> GetAll()
+        {
+            return _dbContextAccessCorp.Categorias.ToList();
+        }
     }
 }

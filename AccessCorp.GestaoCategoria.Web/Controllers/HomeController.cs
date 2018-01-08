@@ -10,7 +10,6 @@ namespace AccessCorp.GestaoCategoria.Web.Controllers
     {
         public ActionResult Index()
         {
-
             return View();
         }
     }

@@ -7,6 +7,7 @@ using System.Web.Http;
 
 namespace AccessCorp.GestaoCategoria.Api.Controllers.Base
 {
+    //[Authorize()]
     public class BaseController : ApiController
     {
     }

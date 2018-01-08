@@ -7,20 +7,32 @@ app.controller("Categoria", function ($scope, $http) {
     //chama o  método IncluirProduto do controlador
     $scope.AddCategoria = function (categoria) {
         $http.post('cadastrar/', { categoria: categoria })
-        .success(function (result) {
-            $scope.produtos = result;
-            delete $scope.produto;
+        .then(function (result) {
+
+            if (result === "TRUE") {
+                alert("Cadastrado com sucesso!!!")
+            }
+            else {
+                alert("Erro interno!!!")
+                console.log(result);
+            }
+
+            delete $scope.categoria;
         })
-        .error(function (data) {
-            console.log(data);
-        });
     }
 
     //chama o método AtualizarCategoria do controlador
     $scope.AtualizarCategoria = function (categoria) {
         $http.post('atualizar/', { categoria: categoria })
         .success(function (result) {
-            $scope.produtos = result;
+            if (result === "TRUE") {
+                alert("Atualizado com sucesso!!!")
+            }
+            else {
+                alert("Erro interno!!!")
+            }
+
+            delete $scope.categoria;
         })
         .error(function (data) {
             console.log(data);

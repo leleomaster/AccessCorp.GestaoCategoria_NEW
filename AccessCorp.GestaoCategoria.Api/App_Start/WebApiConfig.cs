@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Newtonsoft.Json.Serialization;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Formatting;
 using System.Web.Http;
 
 namespace AccessCorp.GestaoCategoria.Api
@@ -19,6 +21,13 @@ namespace AccessCorp.GestaoCategoria.Api
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            config.Formatters.Remove(config.Formatters.XmlFormatter);
+
+            // configure json formatter
+            JsonMediaTypeFormatter jsonFormatter = config.Formatters.JsonFormatter;
+
+            jsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
         }
     }
 }

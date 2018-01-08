@@ -1,13 +1,27 @@
-﻿using AccessCorp.GestaoCategoria.Model;
+﻿using AccessCorp.GestaoCategoria.CrossCutting.ComunicacaoApi;
+using AccessCorp.GestaoCategoria.Model;
 using AccessCorp.GestaoCategoria.Web.Areas.Admin.Controllers.Base;
+using AccessCorp.GestaoCategoria.Web.EndPoints;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 
 namespace AccessCorp.GestaoCategoria.Web.Areas.Admin.Controllers
 {
     public class SubCategoriaController : BaseController
     {
+        private ChamadaApi<SubCategoriaViewModel> _chamadaApiSubCategoria;
+        private ChamadaApi<List<CategoriaViewModel>> _chamadaApiCategoria;
+        private ChamadaApi<List<TipoCampoViewModel>> _chamadaApiTipoCampoViewModel;
+
+        public SubCategoriaController()
+        {
+            _chamadaApiSubCategoria = new ChamadaApi<SubCategoriaViewModel>();
+            _chamadaApiCategoria = new ChamadaApi<List<CategoriaViewModel>>();
+            _chamadaApiTipoCampoViewModel = new ChamadaApi<List<TipoCampoViewModel>>();
+        }
+
         [HttpGet]
         public ActionResult Cadastrar()
         {
@@ -20,9 +34,12 @@ namespace AccessCorp.GestaoCategoria.Web.Areas.Admin.Controllers
             return View();
         }
         [HttpGet]
-        public JsonResult ListaCategoria()
+        public async Task<JsonResult> ListaCategoria()
         {
-            var lista = (from l in TesteLista()
+
+            var resposta = await _chamadaApiCategoria.Get("", WebApiGestaoCategoria.ListaCategoria);
+
+            var lista = (from l in resposta
                          select new
                          {
                              Id = l.Id,
@@ -33,9 +50,11 @@ namespace AccessCorp.GestaoCategoria.Web.Areas.Admin.Controllers
         }
 
         [HttpGet]
-        public JsonResult ListaTipoCampo()
+        public async Task<JsonResult> ListaTipoCampo()
         {
-            var lista = (from l in TesteListaTipoCampo()
+            var resposta = await _chamadaApiTipoCampoViewModel.Get("", WebApiGestaoCategoria.ListaTipoCampo);
+
+            var lista = (from l in resposta
                          select new
                          {
                              Id = l.TipoCampoId,
@@ -50,60 +69,5 @@ namespace AccessCorp.GestaoCategoria.Web.Areas.Admin.Controllers
         {
             return PartialView("_CamposAdicionais");
         }
-        private List<TipoCampoViewModel> TesteListaTipoCampo()
-        {
-            return new List<TipoCampoViewModel>()
-            {
-                new TipoCampoViewModel()
-                {
-                    TipoCampoId = 1,
-                    Nome = "radio"
-                },
-                new TipoCampoViewModel()
-                {
-                    TipoCampoId = 2,
-                    Nome = "check"
-                },               
-                new TipoCampoViewModel()
-                {
-                    TipoCampoId = 4,
-                    Nome = "text"
-                },
-                new TipoCampoViewModel()
-                {
-                    TipoCampoId = 5,
-                    Nome = "textarea"
-                },
-                new TipoCampoViewModel()
-                {
-                    TipoCampoId = 6,
-                    Nome = "select"
-                },
-            };
-        }
-
-        private List<CategoriaViewModel> TesteLista()
-        {
-            return new List<CategoriaViewModel>()
-            {
-                new CategoriaViewModel()
-                {
-                    Id = 1,
-                    Nome="Automovel"
-                },
-                new CategoriaViewModel()
-                {
-                    Id = 2,
-                    Nome="Comercio"
-                },
-                new CategoriaViewModel()
-                {
-                    Id = 3,
-                    Nome="Banco"
-                }
-            };
-
-        }
-
     }
 }

@@ -66,9 +66,17 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AccessCorp.GestaoCategoria.CrossCutting\AccessCorp.GestaoCategoria.CrossCutting.csproj">
+      <Project>{7287D945-9829-4DE6-AAC3-37DB747B5394}</Project>
+      <Name>AccessCorp.GestaoCategoria.CrossCutting</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AccessCorp.GestaoCategoria.Domain\AccessCorp.GestaoCategoria.Domain.csproj">
       <Project>{88C2B83A-DA35-4226-8607-49CC9CA40FAB}</Project>
       <Name>AccessCorp.GestaoCategoria.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AccessCorp.GestaoCategoria.Model\AccessCorp.GestaoCategoria.Model.csproj">
+      <Project>{195CEB9B-7999-4F53-9E9E-8AC79C91D4B0}</Project>
+      <Name>AccessCorp.GestaoCategoria.Model</Name>
     </ProjectReference>
     <ProjectReference Include="..\AccessCorp.GestaoCategoria.Repository\AccessCorp.GestaoCategoria.Repository.csproj">
       <Project>{9F4C7C33-FF5A-4586-B15A-76DED01C07D8}</Project>
