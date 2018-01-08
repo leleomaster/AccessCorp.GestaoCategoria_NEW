@@ -25,6 +25,7 @@ namespace AccessCorp.GestaoCategoria.Web
               url: "Formulario/{categoria}/{id}",
               defaults: new { controller = "Formulario", action = "Index", id = UrlParameter.Optional }
             );
+
         }
     }
 }

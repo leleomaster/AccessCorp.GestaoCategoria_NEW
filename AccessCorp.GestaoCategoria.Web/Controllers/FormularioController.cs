@@ -24,27 +24,28 @@ namespace AccessCorp.GestaoCategoria.Web.Controllers
         }
 
         [HttpGet]
-        public ActionResult Categoria()
+        public ActionResult Categoria(int? id)
         {
             FormularioViewModel model = new FormularioViewModel();
             try
             {
-                model.ListaCategoriaViewModel = _chamadaApiCategoria.Get("", WebApiGestaoCategoria.ListaCategoria).Result;                
+                if (id == null)
+                {
+                    model.ListaCategoriaViewModel = _chamadaApiCategoria.Get("", WebApiGestaoCategoria.ListaCategoria).Result;
+                }
+                else
+                {
+                    model.ListaCategoriaViewModel = _chamadaApiCategoria.Get("", WebApiGestaoCategoria.ListaCategoria).Result.Where(c=>c.Id == id).ToList();
+                }
             }
             catch (Exception ex)
             {
 
-                
+
             }
             return View(model);
         }
-
-        [HttpPost]
-        public ActionResult Categoria(int id)
-        {
-            return View();
-        }
-
+        
         [HttpGet]
         public ActionResult SubCategoria()
         {
