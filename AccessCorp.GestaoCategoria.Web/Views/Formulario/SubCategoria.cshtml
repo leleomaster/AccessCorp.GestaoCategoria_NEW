@@ -1,57 +1,21 @@
-﻿@model IEnumerable<AccessCorp.GestaoCategoria.Model.SubCategoriaViewModel>
+﻿@model AccessCorp.GestaoCategoria.Model.SubCategoriaViewModel
 
 @{
     ViewBag.Title = "SubCategoria";
 }
 
-<h2>SubCategoria</h2>
+@if (Model != null && Model.CamposViewModel.Count > 0)
+{
+    <h2>Formulario de @Model.Descricao</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.SubCategoriaId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Nome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Slug)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Descricao)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IdCategoria)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.SubCategoriaId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Slug)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Descricao)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IdCategoria)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
-    </tr>
+    foreach (var campo in Model.CamposViewModel)
+    {
+        @Html.Partial("_Campo.cshtml", campo)
+    }
 }
-
-</table>
+else
+{
+    <div class="form-group">
+        Não há formulário para exibir. Favor entrar em contato com o administrador para cadastrar o formulário de : @Model.Descricao
+    </div>
+}

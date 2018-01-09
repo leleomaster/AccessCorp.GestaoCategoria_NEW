@@ -16,9 +16,10 @@ namespace AccessCorp.GestaoCategoria.EntityFramework.Mappings
 
             HasKey(c => c.CampoId);
 
-            Property(c => c.CampoId).HasColumnName("CAMPO_ID"); ;
-            Property(c => c.Obrigatorio).IsRequired();
-            Property(c => c.Ordem).IsRequired();
+            Property(c => c.CampoId).HasColumnName("CAMPO_ID");
+            Property(c => c.Obrigatorio).IsRequired().HasColumnName("OBRIGATORIO"); ;
+            Property(c => c.Ordem).IsRequired().HasColumnName("ORDEM"); ;
+            Property(c => c.Descricao).IsRequired().HasColumnName("DESCRICAO"); ;
 
             HasRequired(c => c.SubCategoria)
                 .WithMany(c => c.Campos)

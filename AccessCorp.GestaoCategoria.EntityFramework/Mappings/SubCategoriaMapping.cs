@@ -17,7 +17,6 @@ namespace AccessCorp.GestaoCategoria.EntityFramework.Mappings
             HasKey(s => s.SubCategoriaId);
 
             Property(s => s.SubCategoriaId).HasColumnName("SUB_CATEGORIA_ID");
-            Property(c => c.Nome).HasColumnName("NOME").HasMaxLength(40).IsRequired();
             Property(c => c.Slug).HasColumnName("SLUG").HasMaxLength(650).IsRequired();
             Property(c => c.Descricao).HasColumnName("DESCRICAO").HasMaxLength(300);
 

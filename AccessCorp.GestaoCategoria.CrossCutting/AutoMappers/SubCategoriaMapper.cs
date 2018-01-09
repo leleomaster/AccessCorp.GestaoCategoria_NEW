@@ -26,7 +26,6 @@ namespace AccessCorp.GestaoCategoria.CrossCutting.AutoMappers
 
                     subCategoriaViewModel.SubCategoriaId = subCategoria.SubCategoriaId;
                     subCategoriaViewModel.Descricao = subCategoria.Descricao;
-                    subCategoriaViewModel.Nome = subCategoria.Nome;
                     subCategoriaViewModel.Slug = subCategoria.Slug;
 
                     subCategoriaViewModel.IdCategoria = subCategoria.Categoria.CategoriaId;
@@ -77,7 +76,6 @@ namespace AccessCorp.GestaoCategoria.CrossCutting.AutoMappers
 
                 subCategoria.SubCategoriaId = subCategoriaViewModel.SubCategoriaId;
                 subCategoria.Descricao = subCategoriaViewModel.Descricao;
-                subCategoria.Nome = subCategoriaViewModel.Nome;
                 subCategoria.Slug = subCategoriaViewModel.Slug;
 
                 subCategoria.Categoria = new Categoria { CategoriaId = subCategoriaViewModel.IdCategoria };
@@ -128,7 +126,6 @@ namespace AccessCorp.GestaoCategoria.CrossCutting.AutoMappers
 
                 subCategoriaViewModel.SubCategoriaId = subCategoria.SubCategoriaId;
                 subCategoriaViewModel.Descricao = subCategoria.Descricao;
-                subCategoriaViewModel.Nome = subCategoria.Nome;
                 subCategoriaViewModel.Slug = subCategoria.Slug;
 
                 subCategoriaViewModel.IdCategoria = subCategoria.Categoria.CategoriaId;

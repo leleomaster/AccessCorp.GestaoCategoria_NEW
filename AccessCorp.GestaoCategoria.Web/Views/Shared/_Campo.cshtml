@@ -1,3 +1,21 @@
-﻿<div class="">
+﻿@model AccessCorp.GestaoCategoria.Model.CampoViewModel
 
+{
+<div class="form-group">
+    <label for="idNome" class="col-lg-2 control-label">
+        @Model.Descricao
+    </label>
+    @if (Model.TipoCampoViewModel.Nome.ToString() == "SELECT")
+    {
+        @Html.DropDownList("",
+                    new SelectList(Model.TextoCampos, "Texto", "TextoCampoId"), "Selecione", new { ng_model = "textoCampo.TextoCampoId", @class = "form-control" })
+    }
+    else
+    {
+        <div class="col-lg-10">
+            <input type="@Model.TipoCampoViewModel.Nome" class="form-control" id="idNome" value="@Model.TipoCampoViewModel.TipoCampoId" ng-model="textoCampo.TextoCampoId" />
+        </div>
+    }
 </div>
+}
+

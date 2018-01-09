@@ -40,6 +40,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\AppOAuth\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -54,8 +58,20 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Controllers\CategoriaControllerTest.cs" />
+    <Compile Include="Controllers\SubCategoriaControllerTest.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AccessCorp.GestaoCategoria.Model\AccessCorp.GestaoCategoria.Model.csproj">
+      <Project>{195CEB9B-7999-4F53-9E9E-8AC79C91D4B0}</Project>
+      <Name>AccessCorp.GestaoCategoria.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AccessCorp.GestaoCategoria.Web\AccessCorp.GestaoCategoria.Web.csproj">
+      <Project>{6D7CFFD0-9B81-4747-AE8D-57D9E9A9C46B}</Project>
+      <Name>AccessCorp.GestaoCategoria.Web</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

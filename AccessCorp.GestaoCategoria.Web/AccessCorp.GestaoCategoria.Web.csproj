@@ -189,6 +189,7 @@
     <Content Include="Views\ContaUsuario\Login.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Formulario\SubCategoria.cshtml" />
+    <Content Include="Views\Shared\_Campo.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

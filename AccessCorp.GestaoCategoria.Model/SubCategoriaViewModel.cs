@@ -9,7 +9,6 @@ namespace AccessCorp.GestaoCategoria.Model
     public class SubCategoriaViewModel
     {
         public int SubCategoriaId { get; set; }
-        public string Nome { get; set; }
         public string Slug { get; set; }
         public string Descricao { get; set; }
         public int IdCategoria { get; set; }
