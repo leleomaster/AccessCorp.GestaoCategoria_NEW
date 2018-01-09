@@ -2,9 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
 using System.Net.Http;
-using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Script.Serialization;
@@ -22,7 +20,6 @@ namespace AccessCorp.GestaoCategoria.CrossCutting.ComunicacaoApi
             Url = ConfigurationManager.AppSettings["urlSite"].ToString();
         }
 
-
         private T Deserialize(string dataJson)
         {
             JavaScriptSerializer jss = new JavaScriptSerializer();
@@ -31,75 +28,75 @@ namespace AccessCorp.GestaoCategoria.CrossCutting.ComunicacaoApi
             return obj;
         }
 
-
         public async Task<T> Post(string dataJson, string endPoint)
         {
             ConfigurationHttpClient();
-            try
-            {
 
-                var response = httpClient.PostAsync(endPoint, new StringContent(dataJson)).Result;
+            var response = await httpClient.PostAsync(endPoint, new StringContent(dataJson, Encoding.UTF8, "application/json"));
 
-                response.EnsureSuccessStatusCode();
+            response.EnsureSuccessStatusCode();
 
-                string content = await response.Content.ReadAsStringAsync();
+            string content = response.Content.ReadAsStringAsync().Result;
 
-                return await Task.Run(() => Deserialize(content));
-            }
-            catch (Exception)
-            {
-                return null;
-            }
+            var resultado = (T)Deserialize(content);
+
+            return resultado;
         }
 
         public async Task<T> Put(string dataJson, string endPoint)
         {
             ConfigurationHttpClient();
 
-            var response = httpClient.PostAsync(endPoint, new StringContent(dataJson)).Result;
+            var response = await httpClient.PostAsync(endPoint, new StringContent(dataJson));
 
             response.EnsureSuccessStatusCode();
 
-            string content = await response.Content.ReadAsStringAsync();
+            string content = response.Content.ReadAsStringAsync().Result;
 
-            return await Task.Run(() => Deserialize(content));
+            var resultado = (T)Deserialize(content);
+
+            return resultado;
         }
 
         public async Task<T> Get(string dataJson, string endPoint)
         {
             ConfigurationHttpClient();
 
-            var response = httpClient.GetAsync(endPoint).Result;
+            var response = await httpClient.GetAsync(endPoint);
 
             response.EnsureSuccessStatusCode();
 
-            string content = await response.Content.ReadAsStringAsync();
+            string content = response.Content.ReadAsStringAsync().Result;
 
-            return await Task.Run(() => Deserialize(content));
+            var resultado = (T)Deserialize(content);
+
+            return resultado;
         }
 
         public async Task<T> Delete(string dataJson, string endPoint)
         {
             ConfigurationHttpClient();
 
-            var response = httpClient.DeleteAsync(endPoint).Result;
+            var response = await httpClient.DeleteAsync(endPoint);
 
             response.EnsureSuccessStatusCode();
 
-            string content = await response.Content.ReadAsStringAsync();
+            string content = response.Content.ReadAsStringAsync().Result;
 
-            return await Task.Run(() => Deserialize(content));
+            var resultado = (T)Deserialize(content);
+
+            return resultado;
         }
-
 
         private void ConfigurationHttpClient()
         {
-            httpClient.BaseAddress = new Uri(Url);
+            if (httpClient.BaseAddress == null)
+            {
+                httpClient.BaseAddress = new Uri(Url);
+            }
 
             httpClient.DefaultRequestHeaders.Accept.Clear();
-
-            // adicionando um Accept header para o formato JSON.
-            httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Content-Type", "application/json; charset=utf-8");
         }
     }
 }

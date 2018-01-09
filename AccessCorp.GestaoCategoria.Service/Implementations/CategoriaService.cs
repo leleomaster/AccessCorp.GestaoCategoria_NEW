@@ -3,6 +3,9 @@ using AccessCorp.GestaoCategoria.Service.Interfaces;
 using System;
 using AccessCorp.GestaoCategoria.Domain.Models;
 using AccessCorp.GestaoCategoria.Domain.Business;
+using AccessCorp.GestaoCategoria.Model;
+using AccessCorp.GestaoCategoria.CrossCutting.AutoMappers;
+using System.Collections.Generic;
 
 namespace AccessCorp.GestaoCategoria.Service.Implementations
 {
@@ -17,12 +20,14 @@ namespace AccessCorp.GestaoCategoria.Service.Implementations
             _categoriaBusiness = new CategoriaBusiness();
         }
 
-        public bool Cadastrar(Categoria categoria)
+        public bool Cadastrar(CategoriaViewModel categoriaViewModel)
         {
             bool ehCadastrado = false;
 
             try
             {
+                var categoria = CategoriaMapper.CategoriaViewModelToCategoria(categoriaViewModel);
+
                 _categoriaBusiness.Validar(categoria);
 
                 if (_categoriaBusiness.EhValido)
@@ -38,6 +43,24 @@ namespace AccessCorp.GestaoCategoria.Service.Implementations
             }
 
             return ehCadastrado;
+        }
+
+        public IEnumerable<CategoriaViewModel> GetAll()
+        {
+            IEnumerable<CategoriaViewModel> listaCategoriaViewModel = null;
+
+            try
+            {
+                var listaCategoria = _categoriaRepository.GetAll();
+
+                listaCategoriaViewModel = CategoriaMapper.ListaCategoriaToListaCategoriaViewModel(listaCategoria);
+            }
+            catch (Exception ex)
+            {
+                // log(ex.Message);
+            }
+
+            return listaCategoriaViewModel;
         }
     }
 }

@@ -34,8 +34,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1-beta3\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -50,6 +50,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AutoMappers\CategoriaMapper.cs" />
+    <Compile Include="AutoMappers\SubCategoriaMapper.cs" />
+    <Compile Include="AutoMappers\TipoCampoMapper.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="ComunicacaoApi\ChamadaApi.cs" />
     <Compile Include="DesignPatterns\Singletons\SigletionGeneric.cs" />
@@ -59,7 +62,16 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\AccessCorp.GestaoCategoria.Domain\AccessCorp.GestaoCategoria.Domain.csproj">
+      <Project>{88C2B83A-DA35-4226-8607-49CC9CA40FAB}</Project>
+      <Name>AccessCorp.GestaoCategoria.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AccessCorp.GestaoCategoria.Model\AccessCorp.GestaoCategoria.Model.csproj">
+      <Project>{195CEB9B-7999-4F53-9E9E-8AC79C91D4B0}</Project>
+      <Name>AccessCorp.GestaoCategoria.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

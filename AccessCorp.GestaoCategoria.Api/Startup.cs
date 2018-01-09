@@ -11,7 +11,7 @@ namespace AccessCorp.GestaoCategoria.Api
     {
         public void Configuration(IAppBuilder app)
         {
-            
+           
         }
     }
 }

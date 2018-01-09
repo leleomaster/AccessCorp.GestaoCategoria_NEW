@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="DbContextAccessCorp.cs" />
     <Compile Include="Factories\FactoryDbContextAccessCorp.cs" />
+    <Compile Include="GestaoCategoriaDBInitializer.cs" />
     <Compile Include="Mappings\CampoMapping.cs" />
     <Compile Include="Mappings\CategoriaMapping.cs" />
     <Compile Include="Mappings\SubCategoriaMapping.cs" />

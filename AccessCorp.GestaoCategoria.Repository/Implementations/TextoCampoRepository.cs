@@ -1,4 +1,5 @@
-﻿using AccessCorp.GestaoCategoria.EntityFramework;
+﻿using AccessCorp.GestaoCategoria.Domain.Models;
+using AccessCorp.GestaoCategoria.EntityFramework;
 using AccessCorp.GestaoCategoria.EntityFramework.Factories;
 using AccessCorp.GestaoCategoria.Repository.Interfaces;
 using System;
@@ -16,6 +17,13 @@ namespace AccessCorp.GestaoCategoria.Repository.Implementations
         public TextoCampoRepository()
         {
             _dbContextAccessCorp = FactoryDbContextAccessCorp.CreateDbContextAccessCorp();
+        }
+
+        public void Cadastrar(TextoCampo textoCampo)
+        {
+            _dbContextAccessCorp.TextoCampos.Add(textoCampo);
+
+            _dbContextAccessCorp.SaveChanges();
         }
     }
 }

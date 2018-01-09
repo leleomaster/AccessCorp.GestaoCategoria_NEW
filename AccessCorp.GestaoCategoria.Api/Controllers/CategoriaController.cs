@@ -1,7 +1,10 @@
 ﻿using AccessCorp.GestaoCategoria.Api.Controllers.Base;
+using AccessCorp.GestaoCategoria.CrossCutting.AutoMappers;
 using AccessCorp.GestaoCategoria.CrossCutting.Helps;
 using AccessCorp.GestaoCategoria.Domain.Models;
+using AccessCorp.GestaoCategoria.Model;
 using AccessCorp.GestaoCategoria.Service.Interfaces;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web.Http;
 
@@ -18,15 +21,22 @@ namespace AccessCorp.GestaoCategoria.Api.Controllers
 
         [Route("api/v1/categoria/cadastrar")]
         [HttpPost]
-        public async Task<bool> Cadastrar(Categoria categoria)
+        public async Task<bool> Cadastrar(CategoriaViewModel categoria)
         {
             bool ehCadastrado = false;
 
             //Categoria categoria = HelpObjectJSon<Categoria>.Deserialize(dataJson);
-
+            
             ehCadastrado = _categoriaService.Cadastrar(categoria);
 
             return await Task.Run(() => ehCadastrado);
-        }        
+        }
+
+        [Route("api/v1/categoria/lista")]
+        [HttpGet]
+        public async Task<IHttpActionResult> Lista()
+        {
+            return Ok(await Task.Run(() => { return _categoriaService.GetAll(); }));
+        }
     }
 }

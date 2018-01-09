@@ -13,6 +13,6 @@ namespace AccessCorp.GestaoCategoria.Model
         public string Slug { get; set; }
         public string Descricao { get; set; }
         public int IdCategoria { get; set; }
-        public IEnumerable<CampoViewModel> CamposViewModel { get; set; }
+        public IList<CampoViewModel> CamposViewModel { get; set; }
     }
 }

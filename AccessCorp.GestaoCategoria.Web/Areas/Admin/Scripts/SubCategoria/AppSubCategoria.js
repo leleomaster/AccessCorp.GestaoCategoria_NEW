@@ -4,65 +4,73 @@ var indexCampoAdicionais = 0;
 $(".div-texto-valor-campos").hide();
 
 //registra o controller e cria a função para obter os dados do Controlador MVC
-app.controller("SubCategoria", function ($scope, $http, $compile) {
+app.controller("SubCategoria", function ($scope, $http, $compile, $httpParamSerializerJQLike) {
 
-    $scope.ListaCategoria = [];
-    $scope.ListaTipoCampo = [];
     $scope.camposAdicionais = "";
-    $scope.tempPage = "";
-    $scope.subCategoria = [];
-    $scope.subCategoria.camposViewModel = [];
-    $scope.subCategoria.camposViewModel.TextoCampos = [];
-    $scope.camposViewModel = [];
+    $scope.SubCategoria = {};
+    $scope.SubCategoria.CamposViewModel = [];
+
+    $scope.SubCategoria.Nome = "";
+    $scope.SubCategoria.Descricao = "";
+    $scope.SubCategoria.Slug = "";
+    $scope.ListaTipoCampo = [];
+    $scope.ListaCategoria = [];
 
     //chama o  método IncluirProduto do controlador
     $scope.AddSubCategoria = function (subCategoria) {
-        $http.post('cadastrar/', { subCategoria: subCategoria })
+
+        $scope.SubCategoria.Nome = subCategoria.Nome;
+        $scope.SubCategoria.Descricao = subCategoria.Descricao;
+        $scope.SubCategoria.Slug = subCategoria.Slug;
+        $scope.SubCategoria.IdCategoria = subCategoria.IdCategoria;
+
+        $http.post('cadastrar/', { subCategoria: $scope.SubCategoria })
         .success(function (result) {
-            $scope.produtos = result;
-            delete $scope.produto;
+
+            if (result === "TRUE") {
+                alert("Cadastrado com sucesso!!!")
+            }
+            else {
+                alert("Erro interno!!!")
+            }
+            delete $scope.SubCategoria;
         })
         .error(function (data) {
             console.log(data);
         });
     }
 
-    //chama o método AtualizarCategoria do controlador
-    $scope.AtualizarCategoria = function (subCategoria) {
-        $http.post('atualizar/', { subCategoria: subCategoria })
-        .then(function (response) {
-            $scope.produtos = response.data;
-        });
-    }
-
-    $http.get("ListaCategoria").then(function (response) {
-        $scope.ListaCategoria = response.data;
-    });
-
-    $http.get("ListaTipoCampo").then(function (response) {
+    $http.get("ListaTipocampo/").then(function (response) {
         $scope.ListaTipoCampo = response.data;
     })
 
-    $http.get('CamposAdicionais/')
-       .then(function (response) {
-           $scope.tempPage = response.data;
-       })
 
-    $scope.AddCamposTela = function () {
+    $http.get("ListaCategoria/").then(function (response) {
+        $scope.ListaCategoria = response.data;
+    });
 
-        var el = $compile($scope.tempPage)($scope);
-        $('#idCamposAdicionais').append(el);
+    $scope.AddTextoCampoNgModel = function (TextoCampos) {
+
+        if ($scope.camposViewModel.TextoCampos == undefined) {
+            $scope.camposViewModel.TextoCampos = [];
+        }
+
+        $scope.camposViewModel.TextoCampos.push(TextoCampos);
+
+        delete $scope.TextoCampos;
     }
 
     $scope.AddCampoNgModel = function (camposViewModel) {
 
-        $scope.subCategoria.camposViewModel.push(camposViewModel);
+        if (camposViewModel.TextoCampos == undefined) {
+            camposViewModel.TextoCampos = [];
+        }
 
-        addCamposAdicionaisNaTaebla(indexCampoAdicionais, $compile, $scope);
+        $scope.SubCategoria.CamposViewModel.push($scope.camposViewModel);
 
-        $scope.camposViewModel.Obrigatorio = false;
-        $scope.camposViewModel.Ordem = "";
-        $scope.camposViewModel.IdTipoCampo = 0;
+        addCamposAdicionaisNaTabela(indexCampoAdicionais, $compile, $scope);
+
+        delete $scope.camposViewModel;
 
         indexCampoAdicionais++;
     }
@@ -71,7 +79,7 @@ app.controller("SubCategoria", function ($scope, $http, $compile) {
         var ehParaRemover = confirm("Você tem certeza que deseja remover essas campos?");
 
         if (ehParaRemover) {
-            $scope.subCategoria.camposViewModel.splice(index, 1);
+            $scope.SubCategoria.CamposViewModel.splice(index, 1);
             removerCamposAdicionaisNaTaebla(index);
             indexCampoAdicionais--;
         }
@@ -88,7 +96,8 @@ app.controller("SubCategoria", function ($scope, $http, $compile) {
     }
 });
 
-function addCamposAdicionaisNaTaebla(index, $compile, $scope) {
+
+function addCamposAdicionaisNaTabela(index, $compile, $scope) {
 
     var obrigatorio = $('input#idTextoObrigatorio').is(':checked') == true ? "Sim" : "Não";
     var tr =
@@ -102,8 +111,6 @@ function addCamposAdicionaisNaTaebla(index, $compile, $scope) {
     var el = $compile(tr)($scope);
 
     $("#idCamposAdicionados > table > tbody").append(el);
-
-
 }
 
 function removerCamposAdicionaisNaTaebla(index) {

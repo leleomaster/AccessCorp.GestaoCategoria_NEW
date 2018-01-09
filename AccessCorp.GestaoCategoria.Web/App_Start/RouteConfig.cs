@@ -19,6 +19,13 @@ namespace AccessCorp.GestaoCategoria.Web
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
                 namespaces: new[] { "AccessCorp.GestaoCategoria.Web.Controllers" }
             );
+
+            routes.MapRoute(
+              name: "Formulario",
+              url: "Formulario/{categoria}/{id}",
+              defaults: new { controller = "Formulario", action = "Index", id = UrlParameter.Optional }
+            );
+
         }
     }
 }

@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="CampoViewModel.cs" />
     <Compile Include="CategoriaViewModel.cs" />
+    <Compile Include="FormularioViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SubCategoriaViewModel.cs" />
     <Compile Include="TextoCampoViewModel.cs" />

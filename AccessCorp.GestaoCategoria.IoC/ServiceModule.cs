@@ -14,11 +14,13 @@ namespace AccessCorp.GestaoCategoria.IoC
             kernel.Bind<ICampoService>().To<CampoService>();
             kernel.Bind<ICategoriaService>().To<CategoriaService>();
             kernel.Bind<ISubCategoriaService>().To<SubCategoriaService>();
-
+            kernel.Bind<ITipoCampoService>().To<TipoCampoService>();
+            
             kernel.Bind<ITextoCampoRepository>().To<TextoCampoRepository>();
             kernel.Bind<ICampoRepository>().To<CampoRepository>();
             kernel.Bind<ICategoriaRepository>().To<CategoriaRepository>();
-            kernel.Bind<ISubCategoriaRepository>().To<SubCategoriaRepository>();            
+            kernel.Bind<ISubCategoriaRepository>().To<SubCategoriaRepository>();
+            kernel.Bind<ITipoCampoRepository>().To<TipoCampoRepository>();
         }
     }
 }

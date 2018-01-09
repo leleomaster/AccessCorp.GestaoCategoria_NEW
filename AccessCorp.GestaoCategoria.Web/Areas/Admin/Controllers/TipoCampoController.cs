@@ -1,4 +1,6 @@
-﻿using AccessCorp.GestaoCategoria.Model;
+﻿using AccessCorp.GestaoCategoria.CrossCutting.ComunicacaoApi;
+using AccessCorp.GestaoCategoria.Model;
+using AccessCorp.GestaoCategoria.Web.EndPoints;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,16 +11,19 @@ namespace AccessCorp.GestaoCategoria.Web.Areas.Admin.Controllers
 {
     public class TipoCampoController : Controller
     {
-        [HttpGet]
-        public ActionResult Cadastrar()
+        private ChamadaApi<List<TipoCampoViewModel>> _chamadaApiTipoCampo;
+        
+        public TipoCampoController()
         {
-            return View();
+            _chamadaApiTipoCampo = new ChamadaApi<List<TipoCampoViewModel>>();
         }
 
-        [HttpPost]
-        public ActionResult Cadastrar(TipoCampoViewModel tipoCampo)
+        public JsonResult Lista()
         {
-            return View();
+           
+            var lista = _chamadaApiTipoCampo.Get(null, WebApiGestaoCategoria.ListaTipoCampo);
+            
+            return Json(lista);
         }
     }
 }

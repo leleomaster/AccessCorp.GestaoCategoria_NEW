@@ -5,16 +5,35 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AccessCorp.GestaoCategoria.Model;
+using AccessCorp.GestaoCategoria.CrossCutting.AutoMappers;
 
 namespace AccessCorp.GestaoCategoria.Service.Implementations
 {
-    public class TipoCampoService: ITipoCampoService
+    public class TipoCampoService : ITipoCampoService
     {
         private readonly ITipoCampoRepository _tipoCampoRepository;
 
         public TipoCampoService(ITipoCampoRepository tipoCampoRepository)
         {
             _tipoCampoRepository = tipoCampoRepository;
+        }
+
+        public IEnumerable<TipoCampoViewModel> Get()
+        {
+            try
+            {
+                var resultado = _tipoCampoRepository.GetAll();
+
+                IEnumerable<TipoCampoViewModel> lista = TipoCampoMapper.TipoCampoToTipoCampoViewModel(resultado);
+
+                return lista;
+            }
+            catch (Exception ex)
+            {
+                //log.Error
+                return null;
+            }
         }
     }
 }
