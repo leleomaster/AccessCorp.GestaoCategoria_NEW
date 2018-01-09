@@ -32,11 +32,11 @@ namespace AccessCorp.GestaoCategoria.CrossCutting.ComunicacaoApi
         {
             ConfigurationHttpClient();
 
-            var response = httpClient.PostAsync(endPoint, new StringContent(dataJson, Encoding.UTF8, "application/json")).Result;
+            var response = await httpClient.PostAsync(endPoint, new StringContent(dataJson, Encoding.UTF8, "application/json"));
 
             response.EnsureSuccessStatusCode();
 
-            string content = await response.Content.ReadAsStringAsync();
+            string content = response.Content.ReadAsStringAsync().Result;
 
             var resultado = (T)Deserialize(content);
 
@@ -47,11 +47,11 @@ namespace AccessCorp.GestaoCategoria.CrossCutting.ComunicacaoApi
         {
             ConfigurationHttpClient();
 
-            var response = httpClient.PostAsync(endPoint, new StringContent(dataJson)).Result;
+            var response = await httpClient.PostAsync(endPoint, new StringContent(dataJson));
 
             response.EnsureSuccessStatusCode();
 
-            string content = await response.Content.ReadAsStringAsync();
+            string content = response.Content.ReadAsStringAsync().Result;
 
             var resultado = (T)Deserialize(content);
 
@@ -62,11 +62,11 @@ namespace AccessCorp.GestaoCategoria.CrossCutting.ComunicacaoApi
         {
             ConfigurationHttpClient();
 
-            var response = httpClient.GetAsync(endPoint).Result;
+            var response = await httpClient.GetAsync(endPoint);
 
             response.EnsureSuccessStatusCode();
 
-            string content = await response.Content.ReadAsStringAsync();
+            string content = response.Content.ReadAsStringAsync().Result;
 
             var resultado = (T)Deserialize(content);
 
@@ -77,11 +77,11 @@ namespace AccessCorp.GestaoCategoria.CrossCutting.ComunicacaoApi
         {
             ConfigurationHttpClient();
 
-            var response = httpClient.DeleteAsync(endPoint).Result;
+            var response = await httpClient.DeleteAsync(endPoint);
 
             response.EnsureSuccessStatusCode();
 
-            string content = await response.Content.ReadAsStringAsync();
+            string content = response.Content.ReadAsStringAsync().Result;
 
             var resultado = (T)Deserialize(content);
 

@@ -17,5 +17,6 @@ namespace AccessCorp.GestaoCategoria.Web.EndPoints
         // EndPoints para a área publica
         public const string ListaTipoCampo = url + "api/v1/tipocampos/lista";
         public const string ListaCategoria = url + "api/v1/categoria/lista";
+        public const string ListaSubCategoriaFormulario = url + "api/v1/subcategoria/lista";
     }
 }

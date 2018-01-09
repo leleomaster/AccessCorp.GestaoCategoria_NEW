@@ -1,4 +1,5 @@
 ﻿using AccessCorp.GestaoCategoria.CrossCutting.ComunicacaoApi;
+using AccessCorp.GestaoCategoria.CrossCutting.Helps;
 using AccessCorp.GestaoCategoria.Model;
 using AccessCorp.GestaoCategoria.Web.Areas.Admin.Controllers.Base;
 using AccessCorp.GestaoCategoria.Web.EndPoints;
@@ -12,6 +13,7 @@ namespace AccessCorp.GestaoCategoria.Web.Areas.Admin.Controllers
     public class SubCategoriaController : BaseController
     {
         private ChamadaApi<SubCategoriaViewModel> _chamadaApiSubCategoria;
+        private ChamadaApi<object> _chamadaApiSubCategoria2;
         private ChamadaApi<List<CategoriaViewModel>> _chamadaApiCategoria;
         private ChamadaApi<List<TipoCampoViewModel>> _chamadaApiTipoCampoViewModel;
 
@@ -20,6 +22,7 @@ namespace AccessCorp.GestaoCategoria.Web.Areas.Admin.Controllers
             _chamadaApiSubCategoria = new ChamadaApi<SubCategoriaViewModel>();
             _chamadaApiCategoria = new ChamadaApi<List<CategoriaViewModel>>();
             _chamadaApiTipoCampoViewModel = new ChamadaApi<List<TipoCampoViewModel>>();
+            _chamadaApiSubCategoria2 = new ChamadaApi<object>();
         }
 
         [HttpGet]
@@ -31,8 +34,13 @@ namespace AccessCorp.GestaoCategoria.Web.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Cadastrar(SubCategoriaViewModel subCategoria)
         {
-            return View();
+            string dataJSon = HelpObjectJSon<SubCategoriaViewModel>.Serialize(subCategoria);
+
+            var result = _chamadaApiSubCategoria2.Post(dataJSon, WebApiGestaoCategoria.AdminCadastrarSubCategoria);
+
+            return View(result.Result.ToString().ToUpper());
         }
+        
         [HttpGet]
         public async Task<JsonResult> ListaCategoria()
         {

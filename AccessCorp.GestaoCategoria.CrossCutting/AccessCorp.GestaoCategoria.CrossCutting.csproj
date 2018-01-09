@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutoMappers\CategoriaMapper.cs" />
+    <Compile Include="AutoMappers\SubCategoriaMapper.cs" />
     <Compile Include="AutoMappers\TipoCampoMapper.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="ComunicacaoApi\ChamadaApi.cs" />

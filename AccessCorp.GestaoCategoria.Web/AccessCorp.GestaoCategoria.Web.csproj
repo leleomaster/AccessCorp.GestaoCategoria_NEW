@@ -188,8 +188,7 @@
     <Content Include="scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\ContaUsuario\Login.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Formulario\Index.cshtml" />
-    <Content Include="Views\Formulario\Categoria.cshtml" />
+    <Content Include="Views\Formulario\SubCategoria.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

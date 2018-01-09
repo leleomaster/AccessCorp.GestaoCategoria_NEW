@@ -7,10 +7,43 @@
 
 <h2>Olá, seja bem vindo ao Gestão de Categorias</h2>
 
-@if(Model != null && Model.ListaCategoriaViewModel.Any())
-{
-    foreach (var categoria in Model.ListaCategoriaViewModel)
-    {
+<h3>Lista de Categoria</h3>
 
-    }
+<h4>Escolha a SubCategoria para exibir o formulário</h4>
+
+@if (Model != null && Model.ListaCategoriaViewModel != null && Model.ListaCategoriaViewModel.Count > 0)
+{
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.Label("Nome da Categoria")
+            </th>
+            <th>
+                @Html.Label("Descricao da Categoria")
+            </th>
+            <th>
+                @Html.Label("Slug da Categoria")
+            </th>
+        </tr>
+
+        @foreach (var item in Model.ListaCategoriaViewModel)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descricao)
+                </td>
+                <td>
+                    @Html.ActionLink(item.Slug, "Categoria", "Formulario", new { id = item.Id }, null)
+                </td>
+            </tr>
+        }
+    </table>
+}
+else
+{
+    <p>Nenhum resultado foi encontrado</p>
 }
