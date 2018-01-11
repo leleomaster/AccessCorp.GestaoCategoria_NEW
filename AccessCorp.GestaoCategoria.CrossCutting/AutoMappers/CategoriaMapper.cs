@@ -16,6 +16,8 @@ namespace AccessCorp.GestaoCategoria.CrossCutting.AutoMappers
 
             if (categoriaViewModel != null)
             {
+                categoria = new Categoria();
+
                 categoria.CategoriaId = categoriaViewModel.Id;
                 categoria.Descricao = categoriaViewModel.Descricao;
                 categoria.Nome = categoriaViewModel.Nome;
@@ -32,6 +34,8 @@ namespace AccessCorp.GestaoCategoria.CrossCutting.AutoMappers
 
             if (categoria != null)
             {
+                categoriaViewModel = new CategoriaViewModel();
+
                 categoriaViewModel.Id = categoria.CategoriaId;
                 categoriaViewModel.Descricao = categoria.Descricao;
                 categoriaViewModel.Nome = categoria.Nome;
