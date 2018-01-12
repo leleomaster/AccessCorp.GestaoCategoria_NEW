@@ -1,7 +1,7 @@
 ﻿//define aplicação angular e o controller
 var app = angular.module("subCategoriaApp", []);
 var indexCampoAdicionais = 0;
-$(".div-texto-valor-campos").hide();
+//$(".div-texto-valor-campos").hide();
 
 //registra o controller e cria a função para obter os dados do Controlador MVC
 app.controller("SubCategoria", function ($scope, $http, $compile, $httpParamSerializerJQLike) {
@@ -16,38 +16,45 @@ app.controller("SubCategoria", function ($scope, $http, $compile, $httpParamSeri
     $scope.ListaTipoCampo = [];
     $scope.ListaCategoria = [];
 
-    //chama o  método IncluirProduto do controlador
     $scope.AddSubCategoria = function (subCategoria) {
 
         $scope.SubCategoria.Nome = subCategoria.Nome;
         $scope.SubCategoria.Descricao = subCategoria.Descricao;
         $scope.SubCategoria.Slug = subCategoria.Slug;
         $scope.SubCategoria.IdCategoria = subCategoria.IdCategoria;
+        
+        $("#mensagem").empty();
+        $("#myModal").modal('show');
 
         $http.post('cadastrar/', { subCategoria: $scope.SubCategoria })
         .success(function (result) {
 
-            if (result === "TRUE") {
-                alert("Cadastrado com sucesso!!!")
-            }
-            else {
-                alert("Erro interno!!!")
-            }
+            $("#mensagem").html(result);
+            $("#myModal").modal('hide');
+
             delete $scope.SubCategoria;
         })
         .error(function (data) {
             console.log(data);
+            $("#myModal").modal('hide');
         });
     }
 
-    $http.get("ListaTipocampo/").then(function (response) {
+    $http.get("ListaTipocampo/")
+    .success(function (response) {
         $scope.ListaTipoCampo = response.data;
     })
+     .error(function (data) {
+         console.log(data);
+     });
 
-
-    $http.get("ListaCategoria/").then(function (response) {
-        $scope.ListaCategoria = response.data;
-    });
+    $http.get("ListaCategoria/")
+       .success(function (response) {
+            $scope.ListaCategoria = response.data;
+       })
+      .error(function (data) {
+          console.log(data);
+      });
 
     $scope.AddTextoCampoNgModel = function (TextoCampos) {
 

@@ -40,14 +40,8 @@ ul.dropdown-menu {
     border: 1px solid #ddd !important;
 }
 
-
-
 fieldset legend {
     text-align: center;
-}
-
-.margin-left-botao-add-campo-ngmodel {
-    margin-left: 16.666666666666664%;
 }
 
 .botao-centro {
@@ -71,4 +65,10 @@ fieldset legend {
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+
+.centralizar-loading {
+    height: 0px;
+    width: 60px;
+    margin: 50% auto;
 }

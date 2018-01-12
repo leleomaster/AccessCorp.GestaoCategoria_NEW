@@ -8,29 +8,19 @@ app.controller("Categoria", function ($scope, $http) {
     $scope.AddCategoria = function (categoria) {
 
         $("#mensagem").empty();
+        $("#myModal").modal('show');
 
         $http.post('cadastrar/', { categoria: categoria })
         .success(function (result) {
-            
+
             $("#mensagem").html(result);
-
+            $("#myModal").modal('hide');
             delete $scope.categoria;
         })
         .error(function (data) {
-            //error
-            alert("Error")
-        });
-    }
 
-    //chama o método AtualizarCategoria do controlador
-    $scope.AtualizarCategoria = function (categoria) {
-        $http.post('atualizar/', { categoria: categoria })
-        .success(function (result) {
-
-            delete $scope.categoria;
-        })
-        .error(function (data) {
             console.log(data);
+            $("#myModal").modal('hide');
         });
     }
 });

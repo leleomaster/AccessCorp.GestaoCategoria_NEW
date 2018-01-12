@@ -7,6 +7,10 @@
 
 <h2>Cadastro de SubCategorias</h2>
 
+<div id="mensagem">
+
+</div>
+
 <div ng-app="subCategoriaApp">
     <div ng-controller="SubCategoria">
         <div class="form-group">
@@ -66,21 +70,21 @@
                 <legend>Campos Adicionais para o Formulário</legend>
 
                 <div class="form-group">
-                    <label for="idOrdem" class="col-lg-2 control-label">
+                    <label for="idOrdem" class="col-lg-3 control-label">
                         Ordem
                     </label>
                     <input type="number" class="" id="idOrdem" ng-model="camposViewModel.Ordem" />
                 </div>
 
                 <div class="form-group">
-                    <label for="idTextoObrigatorio" class="col-lg-2 control-label">
+                    <label for="idTextoObrigatorio" class="col-lg-3 control-label">
                         Obrigatório
                     </label>
                     <input type="checkbox" id="idTextoObrigatorio" ng-model="camposViewModel.Obrigatorio" />
                 </div>
 
                 <div class="form-group">
-                    <label for="idIdTipoCampo" class="col-lg-2 control-label">
+                    <label for="idIdTipoCampo" class="col-lg-3 control-label">
                         Tipos de Campos
                     </label>
 
@@ -92,31 +96,33 @@
                     </select>
                 </div>
 
-                <div class="borda-cinza div-texto-valor-campos esconder-div">
+                <div class="borda-cinza div-texto-valor-campos">
                     <fieldset>
                         <legend>Informações para o select/combobox</legend>
                         <div class="form-group">
-                            <label for="idTextoObrigatorio" class="col-lg-2 control-label">
+                            <label for="idTextoObrigatorio" class="col-lg-3 control-label">
                                 Texto do select
                             </label>
                             <input type="text" class="form-control" id="idTextoObrigatorio" ng-model="TextoCampos.Texto" />
                         </div>
 
                         <div class="form-group">
-                            <label for="idTextoObrigatorio" class="col-lg-2 control-label">
+                            <label for="idTextoObrigatorio" class="col-lg-3 control-label">
                                 Valor do select
                             </label>
                             <input type="text" class="form-control" id="idTextoObrigatorio" ng-model="TextoCampos.Valor" />
                         </div>
-                        <div class="form-group">
-                            <a href="#" class="btn btn-primary margin-left-botao-add-campo-ngmodel" ng-click="AddTextoCampoNgModel(TextoCampos)"
+                        <div class="form-group">    
+                            <label class="col-lg-3"></label>                        
+                            <a href="#" class="btn btn-primary" ng-click="AddTextoCampoNgModel(TextoCampos)"
                                ng-disabled="!TextoCampos.Texto || !TextoCampos.Valor"
                                data-toggle="tooltip" title="Adicionar Campos">Adicionar Texto Campos</a>
                         </div>
                     </fieldset>
                 </div>
                 <div class="form-group">
-                    <a href="#" class="btn btn-primary margin-left-botao-add-campo-ngmodel" ng-click="AddCampoNgModel(camposViewModel)"
+                    <label class="col-lg-3"></label>
+                    <a href="#" class="btn btn-primary" ng-click="AddCampoNgModel(camposViewModel)"
                        ng-disabled="!camposViewModel.Ordem || !camposViewModel.IdTipoCampo"
                        data-toggle="tooltip" title="Adicionar Campos">Adicionar Campos</a>
                 </div>
@@ -129,3 +135,4 @@
         </div>
     </div>
 </div>
+@Html.Partial("_Loading")
