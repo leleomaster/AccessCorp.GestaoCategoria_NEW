@@ -26,7 +26,7 @@ namespace AccessCorp.GestaoCategoria.Api.Controllers
         [HttpGet]
         public async Task<IHttpActionResult> Lista()
         {
-            return Ok(await Task.Run(() => { return _tipoCampoService.Get(); }));
+            return Ok(await Task.FromResult(_tipoCampoService.Get()));
         }
     }
 }

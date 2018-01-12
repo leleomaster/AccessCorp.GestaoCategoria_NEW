@@ -1,0 +1,15 @@
+﻿
+@if (ViewBag.ExibirMensagem == "SUCESSO")
+{
+    <div class="alert alert-success">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        O <strong>cadastro</strong> foi realizado com sucesso
+    </div>
+}
+else if (ViewBag.ExibirMensagem == "ERROR")
+{
+    <div class="alert alert-danger">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Aconteceu um erro, tente novamente mais tarde!</strong>
+    </div>
+}

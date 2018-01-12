@@ -4,6 +4,7 @@ using AccessCorp.GestaoCategoria.Web.EndPoints;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -12,17 +13,17 @@ namespace AccessCorp.GestaoCategoria.Web.Areas.Admin.Controllers
     public class TipoCampoController : Controller
     {
         private ChamadaApi<List<TipoCampoViewModel>> _chamadaApiTipoCampo;
-        
+
         public TipoCampoController()
         {
             _chamadaApiTipoCampo = new ChamadaApi<List<TipoCampoViewModel>>();
         }
 
-        public JsonResult Lista()
+        public async Task<JsonResult> Lista()
         {
-           
-            var lista = _chamadaApiTipoCampo.Get(null, WebApiGestaoCategoria.ListaTipoCampo);
-            
+
+            var lista = await _chamadaApiTipoCampo.Get(null, WebApiGestaoCategoria.ListaTipoCampo);
+
             return Json(lista);
         }
     }

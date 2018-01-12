@@ -25,14 +25,14 @@ namespace AccessCorp.GestaoCategoria.Api.Controllers
             
             ehCadastrado = _categoriaService.Cadastrar(categoria);
 
-            return await Task.Run(() => ehCadastrado);
+            return await Task.FromResult(ehCadastrado);
         }
 
         [Route("api/v1/categoria/lista")]
         [HttpGet]
         public async Task<IHttpActionResult> Lista()
         {
-            return Ok(await Task.Run(() => { return _categoriaService.GetAll(); }));
+            return Ok(await Task.FromResult( _categoriaService.GetAll()));
         }
     }
 }

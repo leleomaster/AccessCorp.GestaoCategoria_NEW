@@ -32,13 +32,13 @@ namespace AccessCorp.GestaoCategoria.Web.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public ActionResult Cadastrar(SubCategoriaViewModel subCategoria)
+        public async Task<string> Cadastrar(SubCategoriaViewModel subCategoria)
         {
             string dataJSon = HelpObjectJSon<SubCategoriaViewModel>.Serialize(subCategoria);
 
-            var result = _chamadaApiSubCategoria2.Post(dataJSon, WebApiGestaoCategoria.AdminCadastrarSubCategoria);
+            var result = await _chamadaApiSubCategoria2.Post(dataJSon, WebApiGestaoCategoria.AdminCadastrarSubCategoria);
 
-            return View(result.Result.ToString().ToUpper());
+            return result.ToString().ToUpper();
         }
         
         [HttpGet]
