@@ -7,6 +7,11 @@
 
 <script src="~/Areas/Admin/Scripts/Categoria/AppCategoria.js"></script>
 
+
+<div id="mensagem">
+
+</div>
+
 <div ng-app="categoriaApp">
     <div ng-controller="Categoria">
         <div class="form-group">
@@ -38,8 +43,8 @@
 
         <a href="#" class="btn btn-primary form-control" ng-click="AddCategoria(categoria)" ng-disabled="!categoria.Nome || !categoria.Descricao || !categoria.Slug"
            data-toggle="tooltip" title="Adicionar Produto">Adicionar Categoria</a>
-
     </div>
+    <md-progress-circular>
 </div>
 
 

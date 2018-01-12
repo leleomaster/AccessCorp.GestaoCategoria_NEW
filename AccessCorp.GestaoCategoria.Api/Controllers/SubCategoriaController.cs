@@ -28,7 +28,7 @@ namespace AccessCorp.GestaoCategoria.Api.Controllers
 
           var lista =_subCategoriaService.GetAll();
 
-            return Ok(await Task.Run(() => { return lista; }));
+            return Ok(await Task.FromResult(lista));
         }
 
         [Route("api/v1/subcategoria/cadastrar")]
@@ -41,7 +41,7 @@ namespace AccessCorp.GestaoCategoria.Api.Controllers
 
             ehCadastrado = _subCategoriaService.Cadastrar(categoria);
 
-            return await Task.Run(() => ehCadastrado);
+            return await Task.FromResult(ehCadastrado);
         }
     }
 }
