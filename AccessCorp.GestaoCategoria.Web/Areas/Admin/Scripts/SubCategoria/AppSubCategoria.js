@@ -1,7 +1,7 @@
 ﻿//define aplicação angular e o controller
 var app = angular.module("subCategoriaApp", []);
 var indexCampoAdicionais = 0;
-//$(".div-texto-valor-campos").hide();
+$(".div-texto-valor-campos").hide();
 
 //registra o controller e cria a função para obter os dados do Controlador MVC
 app.controller("SubCategoria", function ($scope, $http, $compile, $httpParamSerializerJQLike) {
