@@ -28,6 +28,19 @@ namespace AccessCorp.GestaoCategoria.Api.Controllers
             return await Task.FromResult(ehCadastrado);
         }
 
+        [Route("api/v1/categoria/excluir")]
+        [HttpDelete]
+        public async Task<bool> Excluir(int id)
+        {
+            bool ehCadastrado = false;
+
+            //Categoria categoria = HelpObjectJSon<Categoria>.Deserialize(dataJson);
+
+            ehCadastrado = _categoriaService.Excluir(id);
+
+            return await Task.FromResult(ehCadastrado);
+        }
+
         [Route("api/v1/categoria/lista")]
         [HttpGet]
         public async Task<IHttpActionResult> Lista()

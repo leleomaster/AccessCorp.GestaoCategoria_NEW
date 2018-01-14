@@ -1,21 +1,25 @@
 ﻿@model AccessCorp.GestaoCategoria.Model.CampoViewModel
 
-{
+
 <div class="form-group">
     <label for="idNome" class="col-lg-2 control-label">
         @Model.Descricao
     </label>
-    @if (Model.TipoCampoViewModel.Nome.ToString() == "SELECT")
-    {
-        @Html.DropDownList("",
-                    new SelectList(Model.TextoCampos, "Texto", "TextoCampoId"), "Selecione", new { ng_model = "textoCampo.TextoCampoId", @class = "form-control" })
-    }
-    else
-    {
-        <div class="col-lg-10">
-            <input type="@Model.TipoCampoViewModel.Nome" class="form-control" id="idNome" value="@Model.TipoCampoViewModel.TipoCampoId" ng-model="textoCampo.TextoCampoId" />
-        </div>
-    }
+    <div class="col-lg-10">
+        @if (Model.IdTipoCampo == "6")
+        {
+            @Html.DropDownList("idTextoCampoCombobox",
+                    new SelectList(Model.TextoCampos, "TextoCampoId", "Texto"), "Selecione", new { ng_model = "textoCampo.TextoCampoId", @class = "form-control" })
+        }
+        else if (Model.IdTipoCampo == "1" || Model.IdTipoCampo == "5")
+        {
+            <input type="@Model.NomeTipoCampo" class="form-control move-left" id="@Model.IdTipoCampo" value="" ng-model="textoCampo.TextoCampoId" />
+        }
+        else
+        {
+            <input type="@Model.NomeTipoCampo" class="form-control" id="@Model.IdTipoCampo" value="" ng-model="textoCampo.TextoCampoId" />
+        }
+    </div>
 </div>
-}
+
 

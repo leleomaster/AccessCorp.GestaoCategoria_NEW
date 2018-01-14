@@ -25,7 +25,7 @@ namespace AccessCorp.GestaoCategoria.Repository.Implementations
         }
 
         public void Cadastrar(SubCategoria subCategoria)
-        {
+        {           
             _dbContextAccessCorp.SubCategorias.Add(subCategoria);
 
             _dbContextAccessCorp.SaveChanges();

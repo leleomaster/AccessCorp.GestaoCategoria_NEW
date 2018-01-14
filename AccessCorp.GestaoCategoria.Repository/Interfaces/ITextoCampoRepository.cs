@@ -10,5 +10,6 @@ namespace AccessCorp.GestaoCategoria.Repository.Interfaces
     public interface ITextoCampoRepository
     {
         void Cadastrar(TextoCampo textoCampo);
+        TextoCampo GetById(int id);
     }
 }

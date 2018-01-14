@@ -7,9 +7,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using System.Linq;
 
 namespace AccessCorp.GestaoCategoria.Web.Controllers
 {
+    [Route("Formulario")]
     public class FormularioController : Controller
     {
         private readonly ChamadaApi<List<CategoriaViewModel>> _chamadaApiCategoria = null;
@@ -21,12 +23,19 @@ namespace AccessCorp.GestaoCategoria.Web.Controllers
             _chamadaApiSubCategoria = new ChamadaApi<List<SubCategoriaViewModel>>();
         }
 
-        public async Task<ActionResult> Index()
+        [HttpGet]
+        public async Task<ActionResult> SubCategoria(int id)
         {
             FormularioViewModel model = new FormularioViewModel();
             try
             {
-                model.ListaCategoriaViewModel =  await _chamadaApiCategoria.Get("", WebApiGestaoCategoria.ListaCategoria);
+                var resultado = await _chamadaApiCategoria.Get(WebApiGestaoCategoria.ListaCategoria);
+
+                model.CategoriaViewModel = resultado.FirstOrDefault(c => c.Id == id);
+
+                model.ListaSubCategoriaViewModel = await _chamadaApiSubCategoria.Get(WebApiGestaoCategoria.ListaSubCategoriaFormulario);
+
+                model.ListaSubCategoriaViewModel = model.ListaSubCategoriaViewModel.Where(s => s.IdCategoria == id).ToList();
             }
             catch (Exception ex)
             {
@@ -36,28 +45,27 @@ namespace AccessCorp.GestaoCategoria.Web.Controllers
         }
 
         [HttpGet]
-        public ActionResult Categoria(int id)
-        {
-            return RedirectToAction("SubCategoria", new { id = id });
-        }
-
-        [HttpGet]
-        public async Task<ActionResult> SubCategoria(int id)
+        public async Task<ActionResult> Formulario(int id)  //    idSubCategoria
         {
             FormularioViewModel model = new FormularioViewModel();
             try
             {
-                model.ListaSubCategoriaViewModel = await _chamadaApiSubCategoria.Get("", WebApiGestaoCategoria.ListaSubCategoriaFormulario);
+                var resultado = await _chamadaApiCategoria.Get(WebApiGestaoCategoria.ListaCategoria);
 
-                model.ListaSubCategoriaViewModel = model.ListaSubCategoriaViewModel.Where(s => s.IdCategoria == id).ToList();
+                model.ListaSubCategoriaViewModel = await _chamadaApiSubCategoria.Get(WebApiGestaoCategoria.ListaSubCategoriaFormulario);
+
+                model.SubCategoriaViewModel = model.ListaSubCategoriaViewModel.FirstOrDefault(s => s.SubCategoriaId == id);
+
+                if (model.SubCategoriaViewModel != null)
+                {
+                    model.CategoriaViewModel = resultado.FirstOrDefault(c => c.Id == model.SubCategoriaViewModel.IdCategoria);
+                }
             }
             catch (Exception ex)
             {
 
             }
-            return View(model.ListaSubCategoriaViewModel);
+            return View(model);
         }
-
-
     }
 }

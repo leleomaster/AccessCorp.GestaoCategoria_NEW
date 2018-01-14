@@ -32,20 +32,21 @@ namespace AccessCorp.GestaoCategoria.Web.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public async Task<string> Cadastrar(SubCategoriaViewModel subCategoria)
+        public async Task<PartialViewResult> Cadastrar(SubCategoriaViewModel subCategoria)
         {
             string dataJSon = HelpObjectJSon<SubCategoriaViewModel>.Serialize(subCategoria);
 
             var result = await _chamadaApiSubCategoria2.Post(dataJSon, WebApiGestaoCategoria.AdminCadastrarSubCategoria);
+            
+            ViewBag.ExibirMensagem = Mensagem.Exibir(result.ToString());
 
-            return result.ToString().ToUpper();
+            return PartialView("_Mensagem");
         }
-        
+
         [HttpGet]
         public async Task<JsonResult> ListaCategoria()
         {
-
-            var resposta = await _chamadaApiCategoria.Get("", WebApiGestaoCategoria.ListaCategoria);
+            var resposta = await _chamadaApiCategoria.Get(WebApiGestaoCategoria.ListaCategoria);
 
             var lista = (from l in resposta
                          select new
@@ -60,7 +61,7 @@ namespace AccessCorp.GestaoCategoria.Web.Areas.Admin.Controllers
         [HttpGet]
         public async Task<JsonResult> ListaTipoCampo()
         {
-            var resposta = await _chamadaApiTipoCampoViewModel.Get("", WebApiGestaoCategoria.ListaTipoCampo);
+            var resposta = await _chamadaApiTipoCampoViewModel.Get(WebApiGestaoCategoria.ListaTipoCampo);
 
             var lista = (from l in resposta
                          select new

@@ -8,7 +8,8 @@ namespace AccessCorp.GestaoCategoria.Model
 {
     public class FormularioViewModel
     {
-        public List<CategoriaViewModel> ListaCategoriaViewModel { get; set; }
+        public CategoriaViewModel CategoriaViewModel { get; set; }
         public List<SubCategoriaViewModel> ListaSubCategoriaViewModel { get; set; }
+        public SubCategoriaViewModel SubCategoriaViewModel { get; set; }
     }
 }

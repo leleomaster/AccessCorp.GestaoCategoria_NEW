@@ -55,6 +55,7 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
+                        <th>Descrição</th>
                         <th>Obrigatório</th>
                         <th>Ordem</th>
                         <th>Tipo de Campo</th>
@@ -68,6 +69,13 @@
         <div id="idCamposAdicionais" class="borda-cinza">
             <fieldset>
                 <legend>Campos Adicionais para o Formulário</legend>
+
+                <div class="form-group">
+                    <label for="idDescricaoCampo" class="col-lg-3 control-label">
+                        Descrição
+                    </label>
+                    <input type="text" class="" id="idDescricaoCampo" ng-model="camposViewModel.Descricao" />
+                </div>
 
                 <div class="form-group">
                     <label for="idOrdem" class="col-lg-3 control-label">

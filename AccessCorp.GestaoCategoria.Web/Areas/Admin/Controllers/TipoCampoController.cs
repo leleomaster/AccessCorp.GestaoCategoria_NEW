@@ -22,7 +22,7 @@ namespace AccessCorp.GestaoCategoria.Web.Areas.Admin.Controllers
         public async Task<JsonResult> Lista()
         {
 
-            var lista = await _chamadaApiTipoCampo.Get(null, WebApiGestaoCategoria.ListaTipoCampo);
+            var lista = await _chamadaApiTipoCampo.Get(WebApiGestaoCategoria.ListaTipoCampo);
 
             return Json(lista);
         }

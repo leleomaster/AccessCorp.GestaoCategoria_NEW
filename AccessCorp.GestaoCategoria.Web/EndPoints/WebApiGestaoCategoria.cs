@@ -11,12 +11,16 @@ namespace AccessCorp.GestaoCategoria.Web.EndPoints
 
         // EndPointsa para a área de Admin
         public const string AdminCadastrarCategoria = url + "api/v1/categoria/cadastrar";
+        public const string ExcluirCategoria = url + "api/v1/categoria/excluir";
+
         public const string AdminCadastrarSubCategoria = url + "api/v1/subcategoria/cadastrar";
 
 
         // EndPoints para a área publica
         public const string ListaTipoCampo = url + "api/v1/tipocampos/lista";
+
         public const string ListaCategoria = url + "api/v1/categoria/lista";
         public const string ListaSubCategoriaFormulario = url + "api/v1/subcategoria/lista";
+        
     }
 }

@@ -23,5 +23,10 @@ namespace AccessCorp.GestaoCategoria.Repository.Implementations
         {
             return _dbContextAccessCorp.TipoCampos.ToList();
         }
+
+        public TipoCampo GetById(int id)
+        {
+            return _dbContextAccessCorp.TipoCampos.Find(id);
+        }
     }
 }

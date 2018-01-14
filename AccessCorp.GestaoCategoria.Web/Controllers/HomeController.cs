@@ -21,10 +21,10 @@ namespace AccessCorp.GestaoCategoria.Web.Controllers
 
         public async Task<ActionResult> Index()
         {
-            FormularioViewModel model = new FormularioViewModel();
+            List<CategoriaViewModel> model = new List<CategoriaViewModel>();
             try
             {
-                model.ListaCategoriaViewModel = await _chamadaApiCategoria.Get("", WebApiGestaoCategoria.ListaCategoria);
+                model = await _chamadaApiCategoria.Get(WebApiGestaoCategoria.ListaCategoria);
             }
             catch (Exception ex)
             {

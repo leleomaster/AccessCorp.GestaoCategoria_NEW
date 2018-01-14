@@ -72,3 +72,12 @@ fieldset legend {
     width: 60px;
     margin: 50% auto;
 }
+
+.move-left {
+    width: 30px !important;
+    box-shadow: none !important;
+  }
+
+
+
+

@@ -43,8 +43,36 @@
 
         <a href="#" class="btn btn-primary form-control" ng-click="AddCategoria(categoria)" ng-disabled="!categoria.Nome || !categoria.Descricao || !categoria.Slug"
            data-toggle="tooltip" title="Adicionar Produto">Adicionar Categoria</a>
+
+        @*<h3> Lista de Categorias </h3>
+        <div id="tableCategoria" ng-show="ListaCategoria != undefined && ListaCategoria.length > 0">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Descrição</th>
+                        <th>Slug</th>
+                        <th>Excluir</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="c in ListaCategoria">
+                        <td>{{ c.Nome }}</td>
+                        <td>{{ c.Descricao }}</td>
+                        <td>{{ c.Slug }}</td>
+                        <td>
+                            <a href="#" class="btn btn-primary" ng-click="ExcluirCategoria(c.Id, c.Nome)">
+                                Exluir a Categoria {{ c.Nome }}
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>*@
+        @*<div id="tableCategoria" ng-show="ListaCategoria == undefined || ListaCategoria.length == 0">
+            <p class="col-lg-5 control-label">Nenhuma categoria encontrada</p>
+        </div>*@
     </div>
-    <md-progress-circular>
 </div>
 
 @Html.Partial("_Loading")

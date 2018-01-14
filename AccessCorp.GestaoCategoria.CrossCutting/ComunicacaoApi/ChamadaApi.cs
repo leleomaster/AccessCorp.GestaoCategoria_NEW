@@ -39,7 +39,7 @@ namespace AccessCorp.GestaoCategoria.CrossCutting.ComunicacaoApi
             string content = response.Content.ReadAsStringAsync().Result;
 
             var resultado = (T)Deserialize(content);
-
+            
             return resultado;
         }
 
@@ -58,7 +58,7 @@ namespace AccessCorp.GestaoCategoria.CrossCutting.ComunicacaoApi
             return resultado;
         }
 
-        public async Task<T> Get(string dataJson, string endPoint)
+        public async Task<T> Get(string endPoint)
         {
             ConfigurationHttpClient();
 
@@ -73,11 +73,11 @@ namespace AccessCorp.GestaoCategoria.CrossCutting.ComunicacaoApi
             return resultado;
         }
 
-        public async Task<T> Delete(string dataJson, string endPoint)
+        public async Task<T> Delete(string id, string endPoint)
         {
             ConfigurationHttpClient();
 
-            var response = await httpClient.DeleteAsync(endPoint);
+            var response = await httpClient.DeleteAsync(endPoint + "?id=" + id);
 
             response.EnsureSuccessStatusCode();
 

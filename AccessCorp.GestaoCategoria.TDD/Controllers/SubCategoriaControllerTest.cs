@@ -25,7 +25,7 @@ namespace AccessCorp.GestaoCategoria.TDD.Controllers
                 campo.Descricao = "Descricao " + i;
                 campo.Obrigatorio = true;
                 campo.Ordem = (short)i;
-                campo.TipoCampoViewModel = new TipoCampoViewModel() { TipoCampoId = i };
+               // campo.TipoCampoViewModel = new TipoCampoViewModel() { TipoCampoId = i };
 
                 for (int j = 0; j < 2; j++)
                 {

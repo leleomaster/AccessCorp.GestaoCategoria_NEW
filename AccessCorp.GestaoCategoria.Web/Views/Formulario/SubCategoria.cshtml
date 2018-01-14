@@ -1,21 +1,39 @@
-﻿@model AccessCorp.GestaoCategoria.Model.SubCategoriaViewModel
+﻿@model AccessCorp.GestaoCategoria.Model.FormularioViewModel
 
 @{
     ViewBag.Title = "SubCategoria";
 }
 
-@if (Model != null && Model.CamposViewModel.Count > 0)
-{
-    <h2>Formulario de @Model.Descricao</h2>
+<h4>Clique em uma SubCategoria para exibir o <strong>Formulário</strong>.</h4>
 
-    foreach (var campo in Model.CamposViewModel)
-    {
-        @Html.Partial("_Campo.cshtml", campo)
-    }
+<h3>Lista de SubCategoria.</h3>
+
+@if (Model != null && Model.ListaSubCategoriaViewModel != null && Model.ListaSubCategoriaViewModel.Count > 0)
+{
+    <table class="table table-striped table-bordered">
+        <tr>
+            <th>
+                @Html.Label("Descricao da SubCategoria")
+            </th>
+            <th>
+                @Html.Label("Slug da Categoria")
+            </th>
+        </tr>
+
+        @foreach (var item in Model.ListaSubCategoriaViewModel)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descricao)
+                </td>
+                <td>
+                    @Html.ActionLink(item.Slug, "Formulario", "Formulario", new { id = item.SubCategoriaId }, null)
+                </td>
+            </tr>
+        }
+    </table>
 }
 else
 {
-    <div class="form-group">
-        Não há formulário para exibir. Favor entrar em contato com o administrador para cadastrar o formulário de : @Model.Descricao
-    </div>
+    <p>Nenhum resultado foi encontrado</p>
 }

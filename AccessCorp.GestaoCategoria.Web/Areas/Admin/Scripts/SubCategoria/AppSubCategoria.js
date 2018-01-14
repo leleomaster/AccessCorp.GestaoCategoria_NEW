@@ -6,16 +6,6 @@ $(".div-texto-valor-campos").hide();
 //registra o controller e cria a função para obter os dados do Controlador MVC
 app.controller("SubCategoria", function ($scope, $http, $compile, $httpParamSerializerJQLike) {
 
-    $scope.camposAdicionais = "";
-    $scope.SubCategoria = {};
-    $scope.SubCategoria.CamposViewModel = [];
-
-    $scope.SubCategoria.Nome = "";
-    $scope.SubCategoria.Descricao = "";
-    $scope.SubCategoria.Slug = "";
-    $scope.ListaTipoCampo = [];
-    $scope.ListaCategoria = [];
-
     $scope.AddSubCategoria = function (subCategoria) {
 
         $scope.SubCategoria.Nome = subCategoria.Nome;
@@ -33,6 +23,8 @@ app.controller("SubCategoria", function ($scope, $http, $compile, $httpParamSeri
             $("#myModal").modal('hide');
 
             delete $scope.SubCategoria;
+
+            inicializarObjectos();
         })
         .error(function (data) {
             console.log(data);
@@ -41,16 +33,16 @@ app.controller("SubCategoria", function ($scope, $http, $compile, $httpParamSeri
     }
 
     $http.get("ListaTipocampo/")
-    .success(function (response) {
-        $scope.ListaTipoCampo = response.data;
+    .success(function (data) {
+        $scope.ListaTipoCampo = data;
     })
      .error(function (data) {
          console.log(data);
      });
 
     $http.get("ListaCategoria/")
-       .success(function (response) {
-            $scope.ListaCategoria = response.data;
+       .success(function (data) {
+            $scope.ListaCategoria = data;
        })
       .error(function (data) {
           console.log(data);
@@ -101,6 +93,19 @@ app.controller("SubCategoria", function ($scope, $http, $compile, $httpParamSeri
             $(".div-texto-valor-campos").hide();
         }
     }
+
+    var inicializarObjectos = function () {
+        $scope.camposAdicionais = "";
+        $scope.SubCategoria = {};
+        $scope.SubCategoria.CamposViewModel = [];
+
+        $scope.SubCategoria.Nome = "";
+        $scope.SubCategoria.Descricao = "";
+        $scope.SubCategoria.Slug = "";
+        $scope.ListaTipoCampo = [];
+        $scope.ListaCategoria = [];
+    };
+    inicializarObjectos();
 });
 
 
@@ -109,7 +114,8 @@ function addCamposAdicionaisNaTabela(index, $compile, $scope) {
     var obrigatorio = $('input#idTextoObrigatorio').is(':checked') == true ? "Sim" : "Não";
     var tr =
             "<tr id=tr_" + index + ">" +
-                "<td>" + obrigatorio + "</td>" +
+                "<td>" + $("#idDescricaoCampo").val() + "</td>" +
+                 "<td>" + obrigatorio + "</td>" +
                 "<td>" + $("#idOrdem").val() + "</td>" +
                 "<td>" + $("#IdTipoCampo option:selected").text() + "</td>" +
                 "<td><button class='btn btn-dange' ng-click='RemoveCampo(" + index + ")'>X</button></td>" +

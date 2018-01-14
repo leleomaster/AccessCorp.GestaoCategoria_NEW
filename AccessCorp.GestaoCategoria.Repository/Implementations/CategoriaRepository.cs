@@ -28,9 +28,21 @@ namespace AccessCorp.GestaoCategoria.Repository.Implementations
             _dbContextAccessCorp.SaveChanges();
         }
 
+        public void Excluir(Categoria categoria)
+        {
+            _dbContextAccessCorp.Categorias.Remove(categoria);
+
+            _dbContextAccessCorp.SaveChanges();
+        }
+
         public IEnumerable<Categoria> GetAll()
         {
             return _dbContextAccessCorp.Categorias.ToList();
+        }
+
+        public Categoria GetById(int id)
+        {
+            return _dbContextAccessCorp.Categorias.Find(id);
         }
     }
 }

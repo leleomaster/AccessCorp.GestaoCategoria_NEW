@@ -1,12 +1,6 @@
 ﻿using AccessCorp.GestaoCategoria.Api.Controllers.Base;
 using AccessCorp.GestaoCategoria.Model;
 using AccessCorp.GestaoCategoria.Service.Interfaces;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 

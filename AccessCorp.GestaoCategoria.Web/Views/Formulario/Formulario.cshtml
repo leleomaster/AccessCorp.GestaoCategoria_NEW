@@ -1,0 +1,29 @@
+﻿@model AccessCorp.GestaoCategoria.Model.FormularioViewModel
+
+@{
+    ViewBag.Title = "Formulário";
+}
+
+<div class="form-group">
+    <h2>Formulario</h2>
+</div>
+
+
+@if (Model != null && Model.SubCategoriaViewModel != null)
+{
+    <div class="form-group">
+        <h2>Formulario da categoria @Model.CategoriaViewModel.Nome e subcategoria @Model.SubCategoriaViewModel.Descricao</h2>
+    </div>
+
+    foreach (var campo in Model.SubCategoriaViewModel.CamposViewModel)
+    {
+        @Html.Partial("_Campo", campo)
+    }
+}
+else
+{
+    <div class="form-group">
+        Não há formulário para exibir.Favor entrar em contato com o administrador para cadastrar o formulário de : @Model.CategoriaViewModel.Nome
+    </div>
+}
+

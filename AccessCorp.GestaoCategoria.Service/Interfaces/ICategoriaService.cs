@@ -11,6 +11,7 @@ namespace AccessCorp.GestaoCategoria.Service.Interfaces
     public interface ICategoriaService
     {
         bool Cadastrar(CategoriaViewModel categoria);
+        bool Excluir(int ida);
         IEnumerable<CategoriaViewModel> GetAll();
     }
 }

@@ -12,7 +12,8 @@ namespace AccessCorp.GestaoCategoria.Model
         public short Ordem { get; set; }
         public bool Obrigatorio { get; set; }
         public string Descricao { get; set; }
-        public TipoCampoViewModel TipoCampoViewModel { get; set; }
+        public string IdTipoCampo { get; set; }
+        public string NomeTipoCampo { get; set; }
         public IList<TextoCampoViewModel> TextoCampos { get; set; }// Caso o TipoCampo seja combobox esta propriedade terá de 1 a N valores para o combobox, se não terá apenas 1 valor
     }
 }

@@ -41,12 +41,16 @@ namespace AccessCorp.GestaoCategoria.CrossCutting.AutoMappers
                             campoViewModel.CampoId = campo.CampoId;
                             campoViewModel.Obrigatorio = campo.Obrigatorio;
                             campoViewModel.Ordem = campo.Ordem;
+                            campoViewModel.Descricao = campo.Descricao;
 
-                            if (campoViewModel.TextoCampos != null && campoViewModel.TextoCampos.Count > 0)
+                            campoViewModel.IdTipoCampo = campo.TipoCampo.TipoCampoId.ToString();
+                            campoViewModel.NomeTipoCampo = campo.TipoCampo.Nome;
+
+                            if (campo.TextoCampos != null && campo.TextoCampos.Count > 0)
                             {
                                 campoViewModel.TextoCampos = new List<TextoCampoViewModel>();
 
-                                foreach (var textoCampo in campoViewModel.TextoCampos)
+                                foreach (var textoCampo in campo.TextoCampos)
                                 {
                                     TextoCampoViewModel textoCampoViewModel = new TextoCampoViewModel();
 
@@ -80,36 +84,40 @@ namespace AccessCorp.GestaoCategoria.CrossCutting.AutoMappers
 
                 subCategoria.Categoria = new Categoria { CategoriaId = subCategoriaViewModel.IdCategoria };
 
-                if (subCategoria.Campos != null && subCategoria.Campos.Count > 0)
+                if (subCategoriaViewModel.CamposViewModel != null && subCategoriaViewModel.CamposViewModel.Count > 0)
                 {
-                    subCategoriaViewModel.CamposViewModel = new List<CampoViewModel>();
+                    subCategoria.Campos = new List<Campo>();
 
-                    foreach (var campo in subCategoria.Campos)
+                    foreach (var campoViewModel in subCategoriaViewModel.CamposViewModel)
                     {
-                        CampoViewModel campoViewModel = new CampoViewModel();
+                        Campo campo = new Campo();
 
-                        campoViewModel.CampoId = campo.CampoId;
-                        campoViewModel.Obrigatorio = campo.Obrigatorio;
-                        campoViewModel.Ordem = campo.Ordem;
+                        campo.CampoId = campoViewModel.CampoId;
+                        campo.Obrigatorio = campoViewModel.Obrigatorio;
+                        campo.Ordem = campoViewModel.Ordem;
+                        campo.Descricao = campoViewModel.Descricao;
+
+                        campo.TipoCampo = new TipoCampo() { TipoCampoId = Convert.ToInt32(campoViewModel.IdTipoCampo ?? "0") };
 
                         if (campoViewModel.TextoCampos != null && campoViewModel.TextoCampos.Count > 0)
                         {
-                            campoViewModel.TextoCampos = new List<TextoCampoViewModel>();
+                            campo.TextoCampos = new List<TextoCampo>();
 
-                            foreach (var textoCampo in campoViewModel.TextoCampos)
+                            foreach (var textoCampoViewModel in campoViewModel.TextoCampos)
                             {
-                                TextoCampoViewModel textoCampoViewModel = new TextoCampoViewModel();
+                                TextoCampo textoCampo = new TextoCampo();
 
-                                textoCampoViewModel.TextoCampoId = textoCampo.TextoCampoId;
-                                textoCampoViewModel.Texto = textoCampo.Texto;
-                                textoCampoViewModel.Valor = textoCampo.Valor;
+                                textoCampo.TextoCampoId = textoCampoViewModel.TextoCampoId;
+                                textoCampo.Texto = textoCampoViewModel.Texto;
+                                textoCampo.Valor = textoCampoViewModel.Valor;
 
-                                campoViewModel.TextoCampos.Add(textoCampoViewModel);
+                                campo.TextoCampos.Add(textoCampo);
                             }
                         }
-                        subCategoriaViewModel.CamposViewModel.Add(campoViewModel);
+
+                        subCategoria.Campos.Add(campo);
                     }
-                }                
+                }
             }
 
             return subCategoria;

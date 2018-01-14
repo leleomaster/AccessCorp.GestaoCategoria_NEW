@@ -10,6 +10,8 @@ namespace AccessCorp.GestaoCategoria.Repository.Interfaces
     public interface ICategoriaRepository
     {
         void Cadastrar(Categoria categoria);
+        void Excluir(Categoria categoria);
         IEnumerable<Categoria> GetAll();
+        Categoria GetById(int id);
     }
 }

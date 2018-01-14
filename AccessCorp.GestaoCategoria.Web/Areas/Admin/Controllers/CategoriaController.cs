@@ -6,9 +6,11 @@ using AccessCorp.GestaoCategoria.Web.EndPoints;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using System.Linq;
 
 namespace AccessCorp.GestaoCategoria.Web.Areas.Admin.Controllers
 {
+    [RoutePrefix("admin/categoria/")]
     public class CategoriaController : BaseController
     {
         [HttpGet]
@@ -19,6 +21,7 @@ namespace AccessCorp.GestaoCategoria.Web.Areas.Admin.Controllers
             return View();
         }
 
+        [Route("cadastrar")]
         [HttpPost]
         public async Task<PartialViewResult> Cadastrar(CategoriaViewModel categoria)
         {
@@ -33,13 +36,38 @@ namespace AccessCorp.GestaoCategoria.Web.Areas.Admin.Controllers
             return PartialView("_Mensagem");
         }
 
+        [Route("lista")]
+        [HttpGet]
         public async Task<JsonResult> Lista()
         {
             ChamadaApi<List<CategoriaViewModel>> _chamadaApiCategoria = new ChamadaApi<List<CategoriaViewModel>>();
 
-            var lista = await _chamadaApiCategoria.Get(null, WebApiGestaoCategoria.ListaCategoria);
+            var resposta = await _chamadaApiCategoria.Get(WebApiGestaoCategoria.ListaCategoria);
 
-            return Json(lista);
+            var lista = (from l in resposta
+                         select new
+                         {
+                             Id = l.Id,
+                             Nome = l.Nome,
+                             Descricao = l.Descricao,
+                             Slug = l.Slug
+                         }).ToList();
+
+            return Json(lista, JsonRequestBehavior.AllowGet);
         }
+       
+        [Route("exluir")]
+        [HttpPost]
+        public async Task<PartialViewResult> Excluir(CategoriaViewModel categoriaViewModel)
+        {
+            ChamadaApi<object> _chamadaApiCategoria = new ChamadaApi<object>();
+
+            var resposta = await _chamadaApiCategoria.Delete(categoriaViewModel.Id.ToString(), WebApiGestaoCategoria.ExcluirCategoria);
+
+            ViewBag.ExibirMensagem = Mensagem.Exibir(resposta.ToString());
+
+            return PartialView("_Mensagem");
+        }
+        
     }
 }

@@ -30,5 +30,16 @@ namespace AccessCorp.GestaoCategoria.CrossCutting.AutoMappers
             }
             return lista;
         }
+
+
+        public static TipoCampo TipoCampoToTipoCampoViewModel(TipoCampoViewModel tipoCampoViewModel)
+        {
+            TipoCampo tipoCampo = new TipoCampo();
+
+            tipoCampo.Nome = tipoCampoViewModel.Nome;
+            tipoCampo.TipoCampoId = tipoCampoViewModel.TipoCampoId;
+
+            return tipoCampo;
+        }
     }
 }

@@ -62,5 +62,24 @@ namespace AccessCorp.GestaoCategoria.Service.Implementations
 
             return listaCategoriaViewModel;
         }
+
+        public bool Excluir(int id)
+        {
+            bool ehExcluido = false;
+
+            try
+            {
+                 var categoria =_categoriaRepository.GetById(id);
+
+                 _categoriaRepository.Excluir(categoria);
+
+                ehExcluido = true;
+            }
+            catch (Exception ex)
+            {
+                // log(ex.Message);
+            }
+            return ehExcluido;
+        }
     }
 }

@@ -10,5 +10,6 @@ namespace AccessCorp.GestaoCategoria.Repository.Interfaces
     public interface ITipoCampoRepository
     {
         IEnumerable<TipoCampo> GetAll();
+        TipoCampo GetById(int id);
     }
 }
